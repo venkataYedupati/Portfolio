@@ -125,12 +125,12 @@
       "icon": "code"
     },
     {
-      "title": "Secure Healthcare Data Access and Search Framework",
-      "description": "Secure cloud-backed portal with searchable encryption and backend indexing optimizations for protected records.",
-      "metrics": ["18% lower latency", "Secure search", "Cloud backed"],
-      "href": "https://github.com/venkatasai0234?tab=repositories",
-      "actionLabel": "Code Samples",
-      "icon": "code"
+      "title": "Distributed Key-Value Store",
+      "description": "Mini Redis and DynamoDB-style distributed KV store built from scratch in Go with Raft leader election, log replication, consistent hashing, gRPC peer communication, LevelDB-backed persistence, and Prometheus metrics.",
+      "metrics": ["Go + gRPC", "Raft consensus", "100K+ ops/sec", "99.9% availability", "40% lower P99 latency"],
+      "href": "https://github.com/venkataYedupati/Distributed-Key-Value-Store.git",
+      "actionLabel": "GitHub",
+      "icon": "github"
     },
     {
       "title": "Behavioral SIEM Correlation Engine",
