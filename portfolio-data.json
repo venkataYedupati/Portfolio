@@ -1,0 +1,263 @@
+{
+  "site": {
+    "title": "Venkata Siva Sai Krishna Prasad Yedupati | Portfolio",
+    "description": "Software engineering portfolio for Venkata Siva Sai Krishna Prasad Yedupati, focused on backend systems, cloud infrastructure, distributed systems, security analytics, and applied AI.",
+    "themeColor": "#10130f",
+    "faviconInitial": "V",
+    "copyrightName": "Venkata Siva Sai Krishna Prasad Yedupati"
+  },
+  "profile": {
+    "fullName": "Venkata Siva Sai Krishna Prasad Yedupati",
+    "shortName": "VSKP",
+    "role": "Software Engineer | Backend | AI/ML",
+    "location": "San Jose, CA, USA",
+    "email": "venkatasivasaikrishnaprasad.yedupati@sjsu.edu",
+    "phoneDisplay": "+1 (408) 210-3261",
+    "phoneHref": "tel:+14082103261",
+    "resumeUrl": "",
+    "resumeLabel": "Resume",
+    "portrait": {
+      "src": "assets/profile.png",
+      "alt": "Portrait of Venkata Siva Sai Krishna Prasad Yedupati"
+    }
+  },
+  "navigation": [
+    { "label": "Work", "href": "#work" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Moments", "href": "#gallery" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "eyebrow": "Software engineer building reliable product systems",
+    "headlineParts": [
+      { "text": "Venkata Siva Sai" },
+      { "text": "Krishna Prasad", "accent": true },
+      { "text": "Yedupati" }
+    ],
+    "summary": "I design backend services, cloud deployments, distributed workflows, and practical AI systems with a focus on performance, reliability, and clear engineering tradeoffs.",
+    "actions": [
+      { "label": "View Work", "href": "#work", "variant": "primary", "icon": "code" },
+      { "label": "Email Me", "href": "mailto:venkatasivasaikrishnaprasad.yedupati@sjsu.edu", "variant": "secondary", "icon": "mail" }
+    ],
+    "signals": ["Backend Systems", "Cloud Infrastructure", "Applied AI", "Security Analytics"]
+  },
+  "stats": [
+    { "value": "20%", "label": "faster AWS response benchmarks" },
+    { "value": "25%", "label": "resource efficiency gain in edge simulations" },
+    { "value": "18%", "label": "lower query latency in secure data systems" },
+    { "value": "100+", "label": "LeetCode problems solved" }
+  ],
+  "sections": {
+    "work": {
+      "eyebrow": "Selected work",
+      "title": "Projects with measurable engineering outcomes",
+      "summary": "A focused set of systems projects across AI, cloud, data, distributed computing, and security analytics."
+    },
+    "skills": {
+      "eyebrow": "Core stack",
+      "title": "Practical tools for production systems",
+      "summary": "Technologies grouped by how they show up in real engineering work: building APIs, deploying cloud systems, tuning data paths, and shipping ML features."
+    },
+    "experience": {
+      "eyebrow": "Background",
+      "title": "Education and hands-on experience",
+      "summary": "Graduate software engineering study paired with cloud engineering practice and systems-focused project work."
+    },
+    "gallery": {
+      "eyebrow": "Moments",
+      "title": "Industry and campus presence",
+      "summary": "A few visual notes from developer events and technology campuses that shaped the portfolio story."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Let us build something reliable",
+      "summary": "Open to software engineering, backend, cloud, security analytics, and AI/ML opportunities."
+    }
+  },
+  "skills": [
+    {
+      "title": "Backend Engineering",
+      "summary": "API-first services, async workflows, and resilient server-side architecture.",
+      "tools": ["Python", "Java", "Node.js", "FastAPI"]
+    },
+    {
+      "title": "Cloud Native Systems",
+      "summary": "Secure deployments, container workflows, and scalable infrastructure patterns.",
+      "tools": ["AWS", "Docker", "IAM", "VPC"]
+    },
+    {
+      "title": "Data Systems",
+      "summary": "SQL workflows, indexing, search paths, and latency-aware access layers.",
+      "tools": ["SQL", "Elasticsearch", "CloudWatch", "S3"]
+    },
+    {
+      "title": "Distributed Systems",
+      "summary": "Task offloading, simulation, performance optimization, and reliability tradeoffs.",
+      "tools": ["Kafka", "iFogSim", "Event Streams", "Simulation"]
+    },
+    {
+      "title": "ML Engineering",
+      "summary": "Applied NLP, anomaly detection, embeddings, and production-minded model pipelines.",
+      "tools": ["XGBoost", "Isolation Forest", "NLP", "Embeddings"]
+    },
+    {
+      "title": "Observability",
+      "summary": "Metrics, alerting, monitoring, and diagnostic dashboards for debuggable systems.",
+      "tools": ["Kibana", "Metrics", "Alerts", "Dashboards"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Meeting Intelligence System",
+      "description": "End-to-end NLP platform that extracts decisions and action items from meeting transcripts using semantic retrieval and summarization.",
+      "metrics": ["NLP pipeline", "Semantic retrieval", "Action extraction"],
+      "href": "https://github.com/venkatasai0234/meeting-intelligence-system",
+      "actionLabel": "GitHub",
+      "icon": "github"
+    },
+    {
+      "title": "Efficient Task Offloading in Mobile Edge Computing",
+      "description": "iFogSim-based distributed simulation for dynamic task offloading with latency and energy optimization.",
+      "metrics": ["25% efficiency gain", "Edge simulation", "Latency analysis"],
+      "href": "https://github.com/venkatasai0234?tab=repositories",
+      "actionLabel": "Code Samples",
+      "icon": "code"
+    },
+    {
+      "title": "Secure Healthcare Data Access and Search Framework",
+      "description": "Secure cloud-backed portal with searchable encryption and backend indexing optimizations for protected records.",
+      "metrics": ["18% lower latency", "Secure search", "Cloud backed"],
+      "href": "https://github.com/venkatasai0234?tab=repositories",
+      "actionLabel": "Code Samples",
+      "icon": "code"
+    },
+    {
+      "title": "Behavioral SIEM Correlation Engine",
+      "description": "Security analytics platform processing high-volume event streams with behavioral windows, anomaly detection, SIGMA-compatible rules, and Elasticsearch/Kibana integration.",
+      "metrics": ["500K+ events/hour", "93.8% detection accuracy", "41% MTTD reduction"],
+      "href": "https://github.com/venkatasai0234/behavioral-siem",
+      "actionLabel": "GitHub",
+      "icon": "github"
+    },
+    {
+      "title": "Security Log Anomaly Detection Pipeline",
+      "description": "ML-powered security analytics pipeline over CICIDS2017 logs using an XGBoost and Isolation Forest ensemble with risk-based alerting.",
+      "metrics": ["2.8M+ logs", "97%+ F1-score", "34% false positive reduction"],
+      "href": "https://github.com/venkatasai0234/Security-Log-Anomaly-Detection-Pipeline",
+      "actionLabel": "GitHub",
+      "icon": "github"
+    }
+  ],
+  "timeline": [
+    {
+      "label": "Graduate Education",
+      "title": "MS Software Engineering",
+      "place": "San Jose State University",
+      "period": "Jan 2025 - Dec 2026",
+      "summary": "Coursework and project work focused on software systems, cloud platforms, data-intensive applications, and applied AI."
+    },
+    {
+      "label": "Cloud Experience",
+      "title": "AWS Cloud Engineering Intern",
+      "place": "AWS Academy",
+      "period": "May 2023 - Jul 2023",
+      "summary": "Designed secure VPC architecture, IAM governance, and tuned two-tier AWS deployment performance."
+    },
+    {
+      "label": "Undergraduate Education",
+      "title": "BTech CSE, Cloud Computing",
+      "place": "SRM Institute of Science and Technology",
+      "period": "Completed",
+      "summary": "Built a computer science foundation with emphasis on cloud computing, distributed applications, and full-stack engineering."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/gdc.png",
+      "alt": "Venkata Siva Sai Krishna Prasad Yedupati at the Game Developers Conference sign",
+      "eyebrow": "Developer event",
+      "title": "Game Developers Conference",
+      "summary": "Exposure to large-scale developer tooling, product engineering, and real-time interactive systems."
+    },
+    {
+      "src": "assets/paypal.png",
+      "alt": "Venkata Siva Sai Krishna Prasad Yedupati outside PayPal Dev Days",
+      "eyebrow": "Technology campus",
+      "title": "PayPal Dev Days",
+      "summary": "A closer look at payments infrastructure, developer platforms, and production reliability conversations."
+    }
+  ],
+  "contact": {
+    "channels": [
+      {
+        "label": "Email",
+        "value": "venkatasivasaikrishnaprasad.yedupati@sjsu.edu",
+        "href": "mailto:venkatasivasaikrishnaprasad.yedupati@sjsu.edu",
+        "icon": "mail"
+      },
+      {
+        "label": "Phone",
+        "value": "+1 (408) 210-3261",
+        "href": "tel:+14082103261",
+        "icon": "phone"
+      },
+      {
+        "label": "Location",
+        "value": "San Jose, CA, USA",
+        "href": "",
+        "icon": "location"
+      }
+    ],
+    "socials": [
+      {
+        "label": "LinkedIn",
+        "value": "Profile",
+        "href": "https://www.linkedin.com/in/venkatayedupati/",
+        "icon": "linkedin"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/venkatasai0234",
+        "href": "https://github.com/venkatasai0234?tab=repositories",
+        "icon": "github"
+      },
+      {
+        "label": "LeetCode",
+        "value": "Account",
+        "href": "https://leetcode.com/u/Venkatasai0234/",
+        "icon": "code"
+      }
+    ]
+  },
+  "themes": {
+    "dark": {
+      "bg": "#10130f",
+      "bgSoft": "#171b15",
+      "surface": "#20261c",
+      "panel": "rgba(31, 38, 28, 0.88)",
+      "panelStrong": "#252d21",
+      "text": "#f4f0e8",
+      "muted": "#b6b1a6",
+      "brand": "#6ee7b7",
+      "brand2": "#f6a15f",
+      "accent": "#8bd3ff",
+      "line": "rgba(244, 240, 232, 0.14)",
+      "shadow": "0 22px 70px rgba(0, 0, 0, 0.32)"
+    },
+    "light": {
+      "bg": "#f7f4ee",
+      "bgSoft": "#ffffff",
+      "surface": "#ebe5da",
+      "panel": "rgba(255, 255, 255, 0.9)",
+      "panelStrong": "#ffffff",
+      "text": "#1f2721",
+      "muted": "#667065",
+      "brand": "#0f8f73",
+      "brand2": "#d46a2f",
+      "accent": "#1e78a8",
+      "line": "rgba(31, 39, 33, 0.14)",
+      "shadow": "0 22px 64px rgba(70, 61, 48, 0.18)"
+    }
+  }
+}
