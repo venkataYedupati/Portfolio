@@ -1,16 +1,16 @@
 :root {
-  --bg: #10130f;
-  --bg-soft: #171b15;
-  --surface: #20261c;
-  --panel: rgba(31, 38, 28, 0.88);
-  --panel-strong: #252d21;
-  --text: #f4f0e8;
-  --muted: #b6b1a6;
-  --brand: #6ee7b7;
-  --brand-2: #f6a15f;
-  --accent: #8bd3ff;
-  --line: rgba(244, 240, 232, 0.14);
-  --shadow: 0 22px 70px rgba(0, 0, 0, 0.32);
+  --bg: #11110f;
+  --bg-soft: #181714;
+  --surface: #211f1a;
+  --panel: rgba(28, 27, 23, 0.92);
+  --panel-strong: #24221d;
+  --text: #f4f1ea;
+  --muted: #b9b1a4;
+  --brand: #d8b76e;
+  --brand-2: #79b8a5;
+  --accent: #9eb7c7;
+  --line: rgba(244, 241, 234, 0.12);
+  --shadow: 0 20px 58px rgba(0, 0, 0, 0.28);
   color-scheme: dark;
 }
 
@@ -38,16 +38,16 @@ body {
   font-size: 16px;
   line-height: 1.6;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 52%, var(--bg) 100%);
-  background-size: 80px 80px, 100% 100%;
+    linear-gradient(90deg, rgba(244, 241, 234, 0.018) 1px, transparent 1px),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 46%, var(--bg) 100%);
+  background-size: 112px 112px, 100% 100%;
 }
 
 body[data-theme="light"] {
   background:
-    linear-gradient(90deg, rgba(31, 39, 33, 0.055) 1px, transparent 1px),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 52%, var(--surface) 100%);
-  background-size: 80px 80px, 100% 100%;
+    linear-gradient(90deg, rgba(45, 42, 36, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 48%, var(--surface) 100%);
+  background-size: 112px 112px, 100% 100%;
 }
 
 body::before {
@@ -57,8 +57,8 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    linear-gradient(135deg, rgba(110, 231, 183, 0.1), transparent 32%),
-    linear-gradient(315deg, rgba(246, 161, 95, 0.1), transparent 36%);
+    linear-gradient(180deg, rgba(216, 183, 110, 0.045), transparent 32%),
+    linear-gradient(120deg, rgba(121, 184, 165, 0.04), transparent 42%);
 }
 
 a {
