@@ -21,6 +21,7 @@
     { "label": "Work", "href": "#work" },
     { "label": "Skills", "href": "#skills" },
     { "label": "Experience", "href": "#experience" },
+    { "label": "Education", "href": "#education" },
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
@@ -66,9 +67,14 @@
       "summary": "Technologies grouped by production responsibility: designing APIs, operating cloud systems, tuning data paths, and shipping ML-backed workflows."
     },
     "experience": {
-      "eyebrow": "Background",
-      "title": "Education & Applied Practice",
-      "summary": "Graduate software engineering study paired with cloud engineering practice and systems-focused project execution."
+      "eyebrow": "Experience",
+      "title": "Engineering Experience",
+      "summary": "Backend and cloud engineering roles focused on API development, secure infrastructure, and production-minded delivery."
+    },
+    "education": {
+      "eyebrow": "Education",
+      "title": "Academic Background",
+      "summary": "Formal software engineering and computer science study across graduate systems work and cloud computing foundations."
     },
     "contact": {
       "eyebrow": "Contact",
@@ -150,20 +156,31 @@
       "icon": "github"
     }
   ],
-  "timeline": [
+  "experience": [
     {
-      "label": "Graduate Education",
-      "title": "MS Software Engineering",
-      "place": "San Jose State University",
-      "period": "Jan 2025 - Dec 2026",
-      "summary": "Coursework and project work focused on software systems, cloud platforms, data-intensive applications, and applied AI."
+      "label": "Internship",
+      "title": "Back End Developer",
+      "place": "Festa",
+      "period": "Jan 2024 - Dec 2024 | Bengaluru, India | Hybrid",
+      "summary": "Developed backend services for festa.world with NestJS and API development, supporting product features across application workflows.",
+      "tools": ["NestJS", "API Development", "Backend Engineering", "Hybrid Collaboration"]
     },
     {
       "label": "Cloud Experience",
       "title": "AWS Cloud Engineering Intern",
       "place": "AWS Academy",
       "period": "May 2023 - Jul 2023",
-      "summary": "Designed secure VPC architecture, IAM governance, and tuned two-tier AWS deployment performance."
+      "summary": "Designed secure VPC architecture, IAM governance, and tuned two-tier AWS deployment performance.",
+      "tools": ["AWS", "VPC", "IAM", "Cloud Deployment"]
+    }
+  ],
+  "education": [
+    {
+      "label": "Graduate Education",
+      "title": "MS Software Engineering",
+      "place": "San Jose State University",
+      "period": "Jan 2025 - Dec 2026",
+      "summary": "Coursework and project work focused on software systems, cloud platforms, data-intensive applications, and applied AI."
     },
     {
       "label": "Undergraduate Education",

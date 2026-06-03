@@ -328,8 +328,8 @@ const renderSkills = (skills = []) => {
   );
 };
 
-const renderTimeline = (items = []) => {
-  const timeline = qs("[data-timeline]");
+const renderTimeline = (items = [], selector = "[data-experience]") => {
+  const timeline = qs(selector);
   if (!timeline) {
     return;
   }
@@ -343,6 +343,11 @@ const renderTimeline = (items = []) => {
       content.append(createElement("h3", "", item.title));
       content.append(createElement("p", "timeline-meta", `${item.place} | ${item.period}`));
       content.append(createElement("p", "timeline-summary", item.summary));
+      if (item.tools?.length) {
+        const tools = createElement("div", "tag-row");
+        tools.replaceChildren(...item.tools.map((tool) => createElement("span", "tag", tool)));
+        content.append(tools);
+      }
       row.append(marker, content);
       return row;
     })
@@ -451,7 +456,9 @@ const renderPortfolio = (data) => {
   renderSectionHeading("skills", data.sections?.skills);
   renderSkills(data.skills);
   renderSectionHeading("experience", data.sections?.experience);
-  renderTimeline(data.timeline);
+  renderTimeline(data.experience, "[data-experience]");
+  renderSectionHeading("education", data.sections?.education);
+  renderTimeline(data.education, "[data-education]");
   renderContact(data);
   setupReveal();
   setupActiveNavigation();
