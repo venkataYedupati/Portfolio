@@ -1,6 +1,6 @@
 :root {
-  --bg: #070807;
-  --bg-soft: #101211;
+  --bg: #000000;
+  --bg-soft: #000000;
   --surface: #171a18;
   --panel: rgba(24, 27, 25, 0.9);
   --panel-strong: #1e2421;
@@ -15,7 +15,7 @@
 }
 
 body[data-theme="light"] {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 * {
@@ -37,28 +37,15 @@ body {
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background:
-    linear-gradient(90deg, rgba(247, 247, 242, 0.026) 1px, transparent 1px),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 52%, var(--bg) 100%);
-  background-size: 118px 118px, 100% 100%;
+  background: #000000;
 }
 
 body[data-theme="light"] {
-  background:
-    linear-gradient(90deg, rgba(45, 42, 36, 0.035) 1px, transparent 1px),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 48%, var(--surface) 100%);
-  background-size: 112px 112px, 100% 100%;
+  background: #000000;
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(139, 224, 201, 0.07), transparent 28%),
-    linear-gradient(90deg, transparent, rgba(240, 195, 106, 0.035), transparent);
+  display: none;
 }
 
 a {
