@@ -199,11 +199,9 @@ const renderNavigation = ({ navigation = [], profile = {} }) => {
   }
 };
 
-const renderHero = ({ hero = {}, profile = {} }) => {
+const renderHero = ({ hero = {} }) => {
   setText("[data-hero-eyebrow]", hero.eyebrow);
   setText("[data-hero-summary]", hero.summary);
-  setText("[data-profile-role]", profile.role);
-  setText("[data-profile-location]", profile.location);
 
   const title = qs("[data-hero-title]");
   if (title) {
@@ -217,12 +215,6 @@ const renderHero = ({ hero = {}, profile = {} }) => {
     });
   }
 
-  const image = qs("[data-profile-image]");
-  if (image && profile.portrait?.src) {
-    image.src = profile.portrait.src;
-    image.alt = profile.portrait.alt || "";
-  }
-
   const actions = qs("[data-hero-actions]");
   if (actions) {
     actions.replaceChildren(...(hero.actions || []).map(createLink));
@@ -232,6 +224,23 @@ const renderHero = ({ hero = {}, profile = {} }) => {
   if (signals) {
     signals.replaceChildren(
       ...(hero.signals || []).map((signal) => createElement("span", "signal", signal))
+    );
+  }
+
+  const panel = hero.panel || {};
+  setText("[data-hero-panel-eyebrow]", panel.eyebrow);
+  setText("[data-hero-panel-title]", panel.title);
+  setText("[data-hero-panel-summary]", panel.summary);
+
+  const panelItems = qs("[data-hero-panel-items]");
+  if (panelItems) {
+    panelItems.replaceChildren(
+      ...(panel.items || []).map((item) => {
+        const row = createElement("div", "brief-item");
+        row.append(createElement("small", "", item.label));
+        row.append(createElement("strong", "", item.value));
+        return row;
+      })
     );
   }
 };
@@ -340,29 +349,6 @@ const renderTimeline = (items = []) => {
   );
 };
 
-const renderGallery = (items = []) => {
-  const gallery = qs("[data-gallery]");
-  if (!gallery) {
-    return;
-  }
-
-  gallery.replaceChildren(
-    ...items.map((item) => {
-      const card = createElement("figure", "gallery-card");
-      const image = createElement("img", "");
-      image.src = item.src;
-      image.alt = item.alt || "";
-
-      const caption = createElement("figcaption", "");
-      caption.append(createElement("p", "eyebrow", item.eyebrow));
-      caption.append(createElement("h3", "", item.title));
-      caption.append(createElement("p", "", item.summary));
-      card.append(image, caption);
-      return card;
-    })
-  );
-};
-
 const renderContact = ({ contact = {}, sections = {}, site = {} }) => {
   renderSectionHeading("contact", sections.contact);
 
@@ -466,8 +452,6 @@ const renderPortfolio = (data) => {
   renderSkills(data.skills);
   renderSectionHeading("experience", data.sections?.experience);
   renderTimeline(data.timeline);
-  renderSectionHeading("gallery", data.sections?.gallery);
-  renderGallery(data.gallery);
   renderContact(data);
   setupReveal();
   setupActiveNavigation();

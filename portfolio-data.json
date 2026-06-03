@@ -15,17 +15,12 @@
     "phoneDisplay": "+1 (408) 210-3261",
     "phoneHref": "tel:+14082103261",
     "resumeUrl": "",
-    "resumeLabel": "Resume",
-    "portrait": {
-      "src": "assets/profile.png",
-      "alt": "Portrait of Venkata Siva Sai Krishna Prasad Yedupati"
-    }
+    "resumeLabel": "Resume"
   },
   "navigation": [
     { "label": "Work", "href": "#work" },
     { "label": "Skills", "href": "#skills" },
     { "label": "Experience", "href": "#experience" },
-    { "label": "Moments", "href": "#gallery" },
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
@@ -40,7 +35,18 @@
       { "label": "View Work", "href": "#work", "variant": "primary", "icon": "code" },
       { "label": "Email Me", "href": "mailto:venkatasivasaikrishnaprasad.yedupati@sjsu.edu", "variant": "secondary", "icon": "mail" }
     ],
-    "signals": ["Backend Platforms", "Distributed Systems", "Security Analytics", "Applied AI"]
+    "signals": ["Backend Platforms", "Distributed Systems", "Security Analytics", "Applied AI"],
+    "panel": {
+      "eyebrow": "Professional focus",
+      "title": "Engineering reliable systems from API design through cloud delivery.",
+      "summary": "A clean systems profile centered on measurable backend, distributed systems, security analytics, and applied AI work.",
+      "items": [
+        { "label": "Location", "value": "San Jose, CA, USA" },
+        { "label": "Current path", "value": "MS Software Engineering at San Jose State University" },
+        { "label": "Target roles", "value": "Software Engineer, Backend Engineer, Cloud Engineer" },
+        { "label": "Core strengths", "value": "APIs, distributed coordination, observability, secure data workflows" }
+      ]
+    }
   },
   "stats": [
     { "value": "20%", "label": "faster AWS response benchmarks" },
@@ -63,11 +69,6 @@
       "eyebrow": "Background",
       "title": "Education and applied engineering practice",
       "summary": "Graduate software engineering study paired with cloud engineering practice and systems-focused project execution."
-    },
-    "gallery": {
-      "eyebrow": "Moments",
-      "title": "Industry and campus presence",
-      "summary": "A few visual notes from developer events and technology campuses that shaped the portfolio story."
     },
     "contact": {
       "eyebrow": "Contact",
@@ -170,22 +171,6 @@
       "place": "SRM Institute of Science and Technology",
       "period": "Completed",
       "summary": "Built a computer science foundation with emphasis on cloud computing, distributed applications, and full-stack engineering."
-    }
-  ],
-  "gallery": [
-    {
-      "src": "assets/gdc.png",
-      "alt": "Venkata Siva Sai Krishna Prasad Yedupati at the Game Developers Conference sign",
-      "eyebrow": "Developer event",
-      "title": "Game Developers Conference",
-      "summary": "Exposure to large-scale developer tooling, product engineering, and real-time interactive systems."
-    },
-    {
-      "src": "assets/paypal.png",
-      "alt": "Venkata Siva Sai Krishna Prasad Yedupati outside PayPal Dev Days",
-      "eyebrow": "Technology campus",
-      "title": "PayPal Dev Days",
-      "summary": "A closer look at payments infrastructure, developer platforms, and production reliability conversations."
     }
   ],
   "contact": {
