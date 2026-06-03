@@ -406,7 +406,7 @@ section[id] {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -424,8 +424,17 @@ section[id] {
 .project-card {
   display: flex;
   flex-direction: column;
+  grid-column: span 3;
   min-height: 300px;
   padding: 1rem;
+}
+
+.project-card:nth-child(1) {
+  grid-column: span 6;
+  min-height: 250px;
+  background:
+    linear-gradient(135deg, rgba(216, 183, 110, 0.08), transparent 42%),
+    var(--panel);
 }
 
 .project-header {
@@ -790,6 +799,11 @@ section[id] {
   .skill-grid,
   .gallery-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-card,
+  .project-card:nth-child(1) {
+    grid-column: 1 / -1;
   }
 }
 

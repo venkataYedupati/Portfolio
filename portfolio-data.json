@@ -29,18 +29,18 @@
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
-    "eyebrow": "Software engineer building reliable product systems",
+    "eyebrow": "Backend, cloud, and AI systems engineer",
     "headlineParts": [
       { "text": "Venkata Siva Sai" },
       { "text": "Krishna Prasad", "accent": true },
       { "text": "Yedupati" }
     ],
-    "summary": "I design backend services, cloud deployments, distributed workflows, and practical AI systems with a focus on performance, reliability, and clear engineering tradeoffs.",
+    "summary": "I build fault-aware APIs, cloud deployments, distributed workflows, and security/AI pipelines where latency, reliability, and observability are treated as product requirements.",
     "actions": [
       { "label": "View Work", "href": "#work", "variant": "primary", "icon": "code" },
       { "label": "Email Me", "href": "mailto:venkatasivasaikrishnaprasad.yedupati@sjsu.edu", "variant": "secondary", "icon": "mail" }
     ],
-    "signals": ["Backend Systems", "Cloud Infrastructure", "Applied AI", "Security Analytics"]
+    "signals": ["Backend Platforms", "Distributed Systems", "Security Analytics", "Applied AI"]
   },
   "stats": [
     { "value": "20%", "label": "faster AWS response benchmarks" },
@@ -51,18 +51,18 @@
   "sections": {
     "work": {
       "eyebrow": "Selected work",
-      "title": "Projects with measurable engineering outcomes",
-      "summary": "A focused set of systems projects across AI, cloud, data, distributed computing, and security analytics."
+      "title": "Systems projects with clear technical ownership",
+      "summary": "Focused builds that show implementation depth: distributed coordination, secure data paths, cloud deployment tradeoffs, and applied ML pipelines."
     },
     "skills": {
       "eyebrow": "Core stack",
-      "title": "Practical tools for production systems",
-      "summary": "Technologies grouped by how they show up in real engineering work: building APIs, deploying cloud systems, tuning data paths, and shipping ML features."
+      "title": "Practical stack for reliable engineering",
+      "summary": "Technologies grouped by production responsibility: designing APIs, operating cloud systems, tuning data paths, and shipping ML-backed workflows."
     },
     "experience": {
       "eyebrow": "Background",
-      "title": "Education and hands-on experience",
-      "summary": "Graduate software engineering study paired with cloud engineering practice and systems-focused project work."
+      "title": "Education and applied engineering practice",
+      "summary": "Graduate software engineering study paired with cloud engineering practice and systems-focused project execution."
     },
     "gallery": {
       "eyebrow": "Moments",
@@ -71,7 +71,7 @@
     },
     "contact": {
       "eyebrow": "Contact",
-      "title": "Let us build something reliable",
+      "title": "Available for engineering conversations",
       "summary": "Open to software engineering, backend, cloud, security analytics, and AI/ML opportunities."
     }
   },
@@ -109,6 +109,14 @@
   ],
   "projects": [
     {
+      "title": "Distributed Key-Value Store",
+      "description": "Mini Redis and DynamoDB-style distributed KV store built from scratch in Go with Raft leader election, log replication, consistent hashing, gRPC peer communication, LevelDB-backed persistence, and Prometheus metrics.",
+      "metrics": ["Go + gRPC", "Raft consensus", "100K+ ops/sec", "99.9% availability", "40% lower P99 latency"],
+      "href": "https://github.com/venkataYedupati/Distributed-Key-Value-Store.git",
+      "actionLabel": "GitHub",
+      "icon": "github"
+    },
+    {
       "title": "Meeting Intelligence System",
       "description": "End-to-end NLP platform that extracts decisions and action items from meeting transcripts using semantic retrieval and summarization.",
       "metrics": ["NLP pipeline", "Semantic retrieval", "Action extraction"],
@@ -123,14 +131,6 @@
       "href": "https://github.com/venkataYedupati?tab=repositories",
       "actionLabel": "Code Samples",
       "icon": "code"
-    },
-    {
-      "title": "Distributed Key-Value Store",
-      "description": "Mini Redis and DynamoDB-style distributed KV store built from scratch in Go with Raft leader election, log replication, consistent hashing, gRPC peer communication, LevelDB-backed persistence, and Prometheus metrics.",
-      "metrics": ["Go + gRPC", "Raft consensus", "100K+ ops/sec", "99.9% availability", "40% lower P99 latency"],
-      "href": "https://github.com/venkataYedupati/Distributed-Key-Value-Store.git",
-      "actionLabel": "GitHub",
-      "icon": "github"
     },
     {
       "title": "Behavioral SIEM Correlation Engine",
