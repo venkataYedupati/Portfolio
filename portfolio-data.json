@@ -8,7 +8,7 @@
   },
   "profile": {
     "fullName": "Venkata Siva Sai Krishna Prasad Yedupati",
-    "shortName": "VSKP",
+    "shortName": "Venkata Yedupati",
     "role": "Software Engineer | Backend | AI/ML",
     "location": "San Jose, CA, USA",
     "email": "venkatasivasaikrishnaprasad.yedupati@sjsu.edu",
@@ -24,13 +24,13 @@
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
-    "eyebrow": "Backend, cloud, and AI systems engineer",
+    "eyebrow": "Venkata Siva Sai Krishna Prasad Yedupati",
     "headlineParts": [
-      { "text": "Venkata Siva Sai" },
-      { "text": "Krishna Prasad", "accent": true },
-      { "text": "Yedupati" }
+      { "text": "Backend Systems." },
+      { "text": "Cloud Reliability.", "accent": true },
+      { "text": "Applied AI." }
     ],
-    "summary": "I build fault-aware APIs, cloud deployments, distributed workflows, and security/AI pipelines where latency, reliability, and observability are treated as product requirements.",
+    "summary": "Software engineer in San Jose building APIs, distributed workflows, security analytics, and cloud-backed AI systems with measurable latency and reliability outcomes.",
     "actions": [
       { "label": "View Work", "href": "#work", "variant": "primary", "icon": "code" },
       { "label": "Email Me", "href": "mailto:venkatasivasaikrishnaprasad.yedupati@sjsu.edu", "variant": "secondary", "icon": "mail" }
@@ -38,8 +38,8 @@
     "signals": ["Backend Platforms", "Distributed Systems", "Security Analytics", "Applied AI"],
     "panel": {
       "eyebrow": "Professional focus",
-      "title": "Engineering reliable systems from API design through cloud delivery.",
-      "summary": "A clean systems profile centered on measurable backend, distributed systems, security analytics, and applied AI work.",
+      "title": "Reliable engineering across backend services, cloud platforms, and intelligent systems.",
+      "summary": "A focused profile for teams that care about clear ownership, practical system design, and production-minded delivery.",
       "items": [
         { "label": "Location", "value": "San Jose, CA, USA" },
         { "label": "Current path", "value": "MS Software Engineering at San Jose State University" },
@@ -57,17 +57,17 @@
   "sections": {
     "work": {
       "eyebrow": "Selected work",
-      "title": "Systems projects with clear technical ownership",
-      "summary": "Focused builds that show implementation depth: distributed coordination, secure data paths, cloud deployment tradeoffs, and applied ML pipelines."
+      "title": "Selected Work",
+      "summary": "Focused builds that show implementation depth across distributed coordination, secure data paths, cloud deployment tradeoffs, and applied ML pipelines."
     },
     "skills": {
       "eyebrow": "Core stack",
-      "title": "Practical stack for reliable engineering",
+      "title": "Core Engineering Stack",
       "summary": "Technologies grouped by production responsibility: designing APIs, operating cloud systems, tuning data paths, and shipping ML-backed workflows."
     },
     "experience": {
       "eyebrow": "Background",
-      "title": "Education and applied engineering practice",
+      "title": "Education & Applied Practice",
       "summary": "Graduate software engineering study paired with cloud engineering practice and systems-focused project execution."
     },
     "contact": {
@@ -217,32 +217,32 @@
   },
   "themes": {
     "dark": {
-      "bg": "#11110f",
-      "bgSoft": "#181714",
-      "surface": "#211f1a",
-      "panel": "rgba(28, 27, 23, 0.92)",
-      "panelStrong": "#24221d",
-      "text": "#f4f1ea",
-      "muted": "#b9b1a4",
-      "brand": "#d8b76e",
-      "brand2": "#79b8a5",
-      "accent": "#9eb7c7",
-      "line": "rgba(244, 241, 234, 0.12)",
-      "shadow": "0 20px 58px rgba(0, 0, 0, 0.28)"
+      "bg": "#070807",
+      "bgSoft": "#101211",
+      "surface": "#171a18",
+      "panel": "rgba(24, 27, 25, 0.9)",
+      "panelStrong": "#1e2421",
+      "text": "#f7f7f2",
+      "muted": "#a8aca6",
+      "brand": "#8be0c9",
+      "brand2": "#f0c36a",
+      "accent": "#a9bcc2",
+      "line": "rgba(247, 247, 242, 0.12)",
+      "shadow": "0 26px 70px rgba(0, 0, 0, 0.34)"
     },
     "light": {
-      "bg": "#f5f2ec",
+      "bg": "#f7f7f2",
       "bgSoft": "#ffffff",
-      "surface": "#e9e3d8",
-      "panel": "rgba(255, 255, 255, 0.92)",
+      "surface": "#ecefea",
+      "panel": "rgba(255, 255, 255, 0.94)",
       "panelStrong": "#ffffff",
-      "text": "#24211c",
-      "muted": "#6f675b",
-      "brand": "#8a6a2e",
-      "brand2": "#287c6e",
-      "accent": "#4f7488",
-      "line": "rgba(36, 33, 28, 0.13)",
-      "shadow": "0 20px 56px rgba(72, 63, 50, 0.16)"
+      "text": "#181b19",
+      "muted": "#5d665f",
+      "brand": "#167a67",
+      "brand2": "#9a6b1f",
+      "accent": "#506c75",
+      "line": "rgba(24, 27, 25, 0.13)",
+      "shadow": "0 24px 60px rgba(55, 65, 58, 0.16)"
     }
   }
 }
