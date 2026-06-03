@@ -536,15 +536,24 @@ section[id] {
 }
 
 .skill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
   width: 2.65rem;
   height: 2.65rem;
   margin-bottom: 1.25rem;
   color: #2f9cff;
+  line-height: 0;
+  overflow: hidden;
 }
 
 .skill-icon svg {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: 2.65rem;
+  height: 2.65rem;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .timeline {
