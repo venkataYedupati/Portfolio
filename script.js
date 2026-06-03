@@ -1,5 +1,4 @@
 const DATA_SOURCE = document.body.dataset.source || "portfolio-data.json";
-const THEME_STORAGE_KEY = "portfolio-theme";
 
 const ICONS = {
   brain: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3a4 4 0 0 0-4 4v.1A4.5 4.5 0 0 0 2 11.4 4.6 4.6 0 0 0 5.3 16 4.2 4.2 0 0 0 9.4 21H10V3H9Zm5 0v18h.6a4.2 4.2 0 0 0 4.1-5A4.6 4.6 0 0 0 22 11.4a4.5 4.5 0 0 0-3-4.3V7a4 4 0 0 0-4-4h-1Z"/></svg>',
@@ -12,11 +11,9 @@ const ICONS = {
   linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM9.5 10H6.8v8h2.7v-8Zm.2-2.5a1.6 1.6 0 1 0-3.2 0 1.6 1.6 0 0 0 3.2 0Zm8.3 5.7c0-2.3-1.2-3.4-2.8-3.4-1.3 0-1.9.7-2.2 1.2v-1h-2.7v8H13v-4c0-1.1.2-2.1 1.5-2.1s1.3 1.2 1.3 2.2V18H18v-4.8Z"/></svg>',
   location: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>',
   mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.2-8 5-8-5V6l8 5 8-5v2.2Z"/></svg>',
-  moon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 14.7A8.5 8.5 0 0 1 9.3 3a9 9 0 1 0 11.7 11.7Z"/></svg>',
   network: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 3h4v4h-4V3Zm-7 14h4v4H3v-4Zm14 0h4v4h-4v-4ZM5 9h14v2h-6v3h-2v-3H5V9Zm-1 5h2v2H4v-2Zm14 0h2v2h-2v-2Z"/></svg>',
   phone: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.4a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.2 1l-2.2 2.2Z"/></svg>',
-  server: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 9h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2Zm13-6v1.8h2V7h-2Zm0 9v1.8h2V16h-2Z"/></svg>',
-  sun: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4V1h2v3h-2Zm0 19v-3h2v3h-2ZM4 13H1v-2h3v2Zm19 0h-3v-2h3v2ZM5.6 7 3.5 4.9l1.4-1.4L7 5.6 5.6 7Zm14.5 14.1L18 19.5l1.4-1.4 2.1 2.1-1.4 1.5ZM18 5.6l2.1-2.1 1.4 1.4L19.4 7 18 5.6ZM3.5 20.2 5.6 18l1.4 1.4-2.1 2.1-1.4-1.3ZM13 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Z"/></svg>'
+  server: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 9h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2Zm13-6v1.8h2V7h-2Zm0 9v1.8h2V16h-2Z"/></svg>'
 };
 
 const CSS_VAR_MAP = {
@@ -36,23 +33,6 @@ const CSS_VAR_MAP = {
 
 const qs = (selector, scope = document) => scope.querySelector(selector);
 const qsa = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
-
-const storage = {
-  get(key) {
-    try {
-      return window.localStorage.getItem(key);
-    } catch (error) {
-      return null;
-    }
-  },
-  set(key, value) {
-    try {
-      window.localStorage.setItem(key, value);
-    } catch (error) {
-      return null;
-    }
-  }
-};
 
 const setText = (selector, value) => {
   const element = typeof selector === "string" ? qs(selector) : selector;
@@ -123,16 +103,16 @@ const setFavicon = (initial, theme) => {
   const svg = [
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">',
     `<rect width="64" height="64" rx="12" fill="${theme.bg || "#10130f"}"/>`,
-    `<text x="50%" y="56%" font-size="30" font-weight="800" text-anchor="middle" fill="${theme.brand || "#6ee7b7"}" font-family="Arial, sans-serif">${initial}</text>`,
+    `<text x="50%" y="56%" font-size="30" font-weight="800" text-anchor="middle" fill="${theme.brand || "#2997ff"}" font-family="Arial, sans-serif">${initial}</text>`,
     "</svg>"
   ].join("");
 
   favicon.href = `data:image/svg+xml,${encodeURIComponent(svg)}`;
 };
 
-const applyTheme = (data, themeName) => {
+const applyTheme = (data) => {
   const themes = data.themes || {};
-  const theme = themes[themeName] || themes.dark || {};
+  const theme = themes.dark || {};
   const root = document.documentElement;
 
   Object.entries(CSS_VAR_MAP).forEach(([key, variable]) => {
@@ -141,46 +121,14 @@ const applyTheme = (data, themeName) => {
     }
   });
 
-  document.body.dataset.theme = themeName;
+  document.body.dataset.theme = "dark";
 
   const meta = qs("meta[name='theme-color']");
   if (meta) {
     meta.setAttribute("content", theme.bg || data.site?.themeColor || "#10130f");
   }
 
-  const nextTheme = themeName === "light" ? "dark" : "light";
-  setText("[data-theme-label]", `Switch to ${nextTheme} theme`);
-  const themeIcon = qs("[data-theme-icon]");
-  if (themeIcon) {
-    themeIcon.innerHTML = ICONS[themeName === "light" ? "moon" : "sun"];
-  }
-
   setFavicon(data.site?.faviconInitial, theme);
-};
-
-const bindThemeToggle = (data) => {
-  const themeToggle = qs("#theme-toggle");
-  const themes = Object.keys(data.themes || {});
-  let activeTheme = storage.get(THEME_STORAGE_KEY) || "dark";
-
-  if (!themes.includes(activeTheme)) {
-    activeTheme = themes[0] || "dark";
-  }
-
-  applyTheme(data, activeTheme);
-
-  if (!themeToggle) {
-    return;
-  }
-
-  themeToggle.addEventListener("click", () => {
-    activeTheme = activeTheme === "light" ? "dark" : "light";
-    if (!themes.includes(activeTheme)) {
-      activeTheme = themes[0] || "dark";
-    }
-    storage.set(THEME_STORAGE_KEY, activeTheme);
-    applyTheme(data, activeTheme);
-  });
 };
 
 const renderNavigation = ({ navigation = [], profile = {} }) => {
@@ -464,7 +412,7 @@ const setupActiveNavigation = () => {
 
 const renderPortfolio = (data) => {
   applyMeta(data);
-  bindThemeToggle(data);
+  applyTheme(data);
   renderNavigation(data);
   renderHero(data);
   renderStats(data.stats);
