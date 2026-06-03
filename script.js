@@ -2,14 +2,20 @@ const DATA_SOURCE = document.body.dataset.source || "portfolio-data.json";
 const THEME_STORAGE_KEY = "portfolio-theme";
 
 const ICONS = {
+  brain: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3a4 4 0 0 0-4 4v.1A4.5 4.5 0 0 0 2 11.4 4.6 4.6 0 0 0 5.3 16 4.2 4.2 0 0 0 9.4 21H10V3H9Zm5 0v18h.6a4.2 4.2 0 0 0 4.1-5A4.6 4.6 0 0 0 22 11.4a4.5 4.5 0 0 0-3-4.3V7a4 4 0 0 0-4-4h-1Z"/></svg>',
+  cloud: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.3 18H8a5 5 0 0 1-.8-9.9A7 7 0 0 1 20.7 11 3.6 3.6 0 0 1 19.3 18ZM8 16h11.3a1.6 1.6 0 0 0 .4-3.1l-1.1-.3v-1.1A5 5 0 0 0 9 9.5l-.4.8-.9-.2A3 3 0 0 0 8 16Z"/></svg>',
   code: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m8.7 16.6-5-5 5-5 1.4 1.4-3.6 3.6 3.6 3.6-1.4 1.4Zm6.6 0-1.4-1.4 3.6-3.6-3.6-3.6 1.4-1.4 5 5-5 5Zm-3.9 1.2-1.9-.6 3.1-10.4 1.9.6-3.1 10.4Z"/></svg>',
+  database: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3c-4.4 0-8 1.4-8 3.2v11.6C4 19.6 7.6 21 12 21s8-1.4 8-3.2V6.2C20 4.4 16.4 3 12 3Zm0 2c3.6 0 5.6.9 6 1.3-.4.4-2.4 1.3-6 1.3s-5.6-.9-6-1.3C6.4 5.9 8.4 5 12 5Zm6 7.4c-.9.7-3.2 1.3-6 1.3s-5.1-.6-6-1.3V9c1.5.7 3.6 1 6 1s4.5-.3 6-1v3.4Zm-6 6.6c-3.6 0-5.6-.9-6-1.3v-3c1.5.7 3.6 1 6 1s4.5-.3 6-1v3c-.4.4-2.4 1.3-6 1.3Z"/></svg>',
+  eye: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 5c5.3 0 9 5.3 9 7s-3.7 7-9 7-9-5.3-9-7 3.7-7 9-7Zm0 2c-4 0-6.7 3.7-7 5 .3 1.3 3 5 7 5s6.7-3.7 7-5c-.3-1.3-3-5-7-5Zm0 2.2A2.8 2.8 0 1 1 12 14.8 2.8 2.8 0 0 1 12 9.2Z"/></svg>',
   external: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H5v12h12v-6h2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>',
   github: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>',
   linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM9.5 10H6.8v8h2.7v-8Zm.2-2.5a1.6 1.6 0 1 0-3.2 0 1.6 1.6 0 0 0 3.2 0Zm8.3 5.7c0-2.3-1.2-3.4-2.8-3.4-1.3 0-1.9.7-2.2 1.2v-1h-2.7v8H13v-4c0-1.1.2-2.1 1.5-2.1s1.3 1.2 1.3 2.2V18H18v-4.8Z"/></svg>',
   location: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>',
   mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.2-8 5-8-5V6l8 5 8-5v2.2Z"/></svg>',
   moon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 14.7A8.5 8.5 0 0 1 9.3 3a9 9 0 1 0 11.7 11.7Z"/></svg>',
+  network: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 3h4v4h-4V3Zm-7 14h4v4H3v-4Zm14 0h4v4h-4v-4ZM5 9h14v2h-6v3h-2v-3H5V9Zm-1 5h2v2H4v-2Zm14 0h2v2h-2v-2Z"/></svg>',
   phone: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.4a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.2 1l-2.2 2.2Z"/></svg>',
+  server: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 9h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2Zm13-6v1.8h2V7h-2Zm0 9v1.8h2V16h-2Z"/></svg>',
   sun: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4V1h2v3h-2Zm0 19v-3h2v3h-2ZM4 13H1v-2h3v2Zm19 0h-3v-2h3v2ZM5.6 7 3.5 4.9l1.4-1.4L7 5.6 5.6 7Zm14.5 14.1L18 19.5l1.4-1.4 2.1 2.1-1.4 1.5ZM18 5.6l2.1-2.1 1.4 1.4L19.4 7 18 5.6ZM3.5 20.2 5.6 18l1.4 1.4-2.1 2.1-1.4-1.3ZM13 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Z"/></svg>'
 };
 
@@ -316,6 +322,11 @@ const renderSkills = (skills = []) => {
   grid.replaceChildren(
     ...skills.map((skill) => {
       const card = createElement("article", "skill-card");
+      if (skill.icon) {
+        const icon = createIcon(skill.icon);
+        icon.classList.add("skill-icon");
+        card.append(icon);
+      }
       card.append(createElement("h3", "", skill.title));
       card.append(createElement("p", "", skill.summary));
 
@@ -328,7 +339,7 @@ const renderSkills = (skills = []) => {
   );
 };
 
-const renderTimeline = (items = [], selector = "[data-experience]") => {
+const renderTimeline = (items = [], selector = "[data-experience]", options = {}) => {
   const timeline = qs(selector);
   if (!timeline) {
     return;
@@ -340,8 +351,14 @@ const renderTimeline = (items = [], selector = "[data-experience]") => {
       const marker = createElement("div", "timeline-marker");
       const content = createElement("div", "timeline-content");
       content.append(createElement("p", "timeline-label", item.label));
-      content.append(createElement("h3", "", item.title));
-      content.append(createElement("p", "timeline-meta", `${item.place} | ${item.period}`));
+      if (options.companyFirst) {
+        content.append(createElement("h3", "", item.place));
+        content.append(createElement("p", "timeline-role", item.title));
+        content.append(createElement("p", "timeline-meta", item.period));
+      } else {
+        content.append(createElement("h3", "", item.title));
+        content.append(createElement("p", "timeline-meta", `${item.place} | ${item.period}`));
+      }
       content.append(createElement("p", "timeline-summary", item.summary));
       if (item.tools?.length) {
         const tools = createElement("div", "tag-row");
@@ -456,7 +473,7 @@ const renderPortfolio = (data) => {
   renderSectionHeading("skills", data.sections?.skills);
   renderSkills(data.skills);
   renderSectionHeading("experience", data.sections?.experience);
-  renderTimeline(data.experience, "[data-experience]");
+  renderTimeline(data.experience, "[data-experience]", { companyFirst: true });
   renderSectionHeading("education", data.sections?.education);
   renderTimeline(data.education, "[data-education]");
   renderContact(data);

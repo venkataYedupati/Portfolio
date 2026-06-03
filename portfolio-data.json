@@ -86,32 +86,38 @@
     {
       "title": "Backend Engineering",
       "summary": "API-first services, async workflows, and resilient server-side architecture.",
-      "tools": ["Python", "Java", "Node.js", "FastAPI"]
+      "tools": ["Python", "Java", "Node.js", "FastAPI"],
+      "icon": "server"
     },
     {
       "title": "Cloud Native Systems",
       "summary": "Secure deployments, container workflows, and scalable infrastructure patterns.",
-      "tools": ["AWS", "Docker", "IAM", "VPC"]
+      "tools": ["AWS", "Docker", "IAM", "VPC"],
+      "icon": "cloud"
     },
     {
       "title": "Data Systems",
       "summary": "SQL workflows, indexing, search paths, and latency-aware access layers.",
-      "tools": ["SQL", "Elasticsearch", "CloudWatch", "S3"]
+      "tools": ["SQL", "Elasticsearch", "CloudWatch", "S3"],
+      "icon": "database"
     },
     {
       "title": "Distributed Systems",
       "summary": "Task offloading, simulation, performance optimization, and reliability tradeoffs.",
-      "tools": ["Kafka", "iFogSim", "Event Streams", "Simulation"]
+      "tools": ["Kafka", "iFogSim", "Event Streams", "Simulation"],
+      "icon": "network"
     },
     {
       "title": "ML Engineering",
       "summary": "Applied NLP, anomaly detection, embeddings, and production-minded model pipelines.",
-      "tools": ["XGBoost", "Isolation Forest", "NLP", "Embeddings"]
+      "tools": ["XGBoost", "Isolation Forest", "NLP", "Embeddings"],
+      "icon": "brain"
     },
     {
       "title": "Observability",
       "summary": "Metrics, alerting, monitoring, and diagnostic dashboards for debuggable systems.",
-      "tools": ["Kibana", "Metrics", "Alerts", "Dashboards"]
+      "tools": ["Kibana", "Metrics", "Alerts", "Dashboards"],
+      "icon": "eye"
     }
   ],
   "projects": [

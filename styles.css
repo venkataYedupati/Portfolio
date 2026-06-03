@@ -548,6 +548,18 @@ section[id] {
   margin: 0.7rem 0 0;
 }
 
+.skill-icon {
+  width: 2.65rem;
+  height: 2.65rem;
+  margin-bottom: 1.25rem;
+  color: #2f9cff;
+}
+
+.skill-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
 .timeline {
   position: relative;
   display: grid;
@@ -571,11 +583,18 @@ section[id] {
 }
 
 .timeline-label,
+.timeline-role,
 .timeline-meta {
   margin: 0;
   color: var(--brand);
   font-size: 0.86rem;
   font-weight: 800;
+}
+
+.timeline-role {
+  margin-top: 0.32rem;
+  color: var(--text);
+  font-size: 1rem;
 }
 
 .timeline-meta {
