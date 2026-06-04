@@ -123,6 +123,7 @@
   "projects": [
     {
       "title": "Distributed Key-Value Store",
+      "categories": ["Systems", "Backend"],
       "description": "Mini Redis and DynamoDB-style distributed KV store built from scratch in Go with Raft leader election, log replication, consistent hashing, gRPC peer communication, LevelDB-backed persistence, and Prometheus metrics.",
       "metrics": ["Go + gRPC", "Raft consensus", "100K+ ops/sec", "99.9% availability", "40% lower P99 latency"],
       "href": "https://github.com/venkataYedupati/Distributed-Key-Value-Store.git",
@@ -131,6 +132,7 @@
     },
     {
       "title": "Meeting Intelligence System",
+      "categories": ["AI/ML", "Backend"],
       "description": "End-to-end NLP platform that extracts decisions and action items from meeting transcripts using semantic retrieval and summarization.",
       "metrics": ["NLP pipeline", "Semantic retrieval", "Action extraction"],
       "href": "https://github.com/venkataYedupati/meeting-intelligence-system",
@@ -139,6 +141,7 @@
     },
     {
       "title": "Efficient Task Offloading in Mobile Edge Computing",
+      "categories": ["Cloud", "Systems"],
       "description": "iFogSim-based distributed simulation for dynamic task offloading with latency and energy optimization.",
       "metrics": ["25% efficiency gain", "Edge simulation", "Latency analysis"],
       "href": "https://github.com/venkataYedupati?tab=repositories",
@@ -147,6 +150,7 @@
     },
     {
       "title": "Behavioral SIEM Correlation Engine",
+      "categories": ["Security", "Data"],
       "description": "Security analytics platform processing high-volume event streams with behavioral windows, anomaly detection, SIGMA-compatible rules, and Elasticsearch/Kibana integration.",
       "metrics": ["500K+ events/hour", "93.8% detection accuracy", "41% MTTD reduction"],
       "href": "https://github.com/venkataYedupati/behavioral-siem",
@@ -155,6 +159,7 @@
     },
     {
       "title": "Security Log Anomaly Detection Pipeline",
+      "categories": ["Security", "AI/ML"],
       "description": "ML-powered security analytics pipeline over CICIDS2017 logs using an XGBoost and Isolation Forest ensemble with risk-based alerting.",
       "metrics": ["2.8M+ logs", "97%+ F1-score", "34% false positive reduction"],
       "href": "https://github.com/venkataYedupati/Security-Log-Anomaly-Detection-Pipeline",

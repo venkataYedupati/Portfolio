@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=dynamic-ui" />
   </head>
   <body data-source="portfolio-data.json">
     <header class="topbar shell">
@@ -59,6 +59,7 @@
           <h2 data-work-title></h2>
           <p data-work-summary></p>
         </div>
+        <div class="filter-bar" data-project-filters aria-label="Project filters"></div>
         <div class="work-grid" data-projects></div>
       </section>
 
@@ -111,6 +112,6 @@
     <noscript>
       <p class="noscript">Enable JavaScript to load this portfolio.</p>
     </noscript>
-    <script src="script.js"></script>
+    <script src="script.js?v=dynamic-ui"></script>
   </body>
 </html>

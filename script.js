@@ -33,6 +33,7 @@ const CSS_VAR_MAP = {
 
 const qs = (selector, scope = document) => scope.querySelector(selector);
 const qsa = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
+const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches || false;
 
 const setText = (selector, value) => {
   const element = typeof selector === "string" ? qs(selector) : selector;
@@ -208,7 +209,9 @@ const renderStats = (stats = []) => {
   grid.replaceChildren(
     ...stats.map((stat) => {
       const card = createElement("article", "metric-card");
-      card.append(createElement("strong", "", stat.value));
+      const value = createElement("strong", "stat-value", stat.value);
+      value.dataset.finalValue = stat.value;
+      card.append(value);
       card.append(createElement("span", "", stat.label));
       return card;
     })
@@ -221,6 +224,56 @@ const renderSectionHeading = (key, section = {}) => {
   setText(`[data-${key}-summary]`, section.summary);
 };
 
+const renderProjectFilters = (projects = []) => {
+  const filterBar = qs("[data-project-filters]");
+  if (!filterBar) {
+    return;
+  }
+
+  const categories = ["All", ...new Set(projects.flatMap((project) => project.categories || []))];
+  if (categories.length <= 1) {
+    filterBar.hidden = true;
+    return;
+  }
+
+  filterBar.hidden = false;
+  filterBar.replaceChildren(
+    ...categories.map((category, index) => {
+      const button = createElement("button", `filter-button${index === 0 ? " is-active" : ""}`, category);
+      button.type = "button";
+      button.dataset.filter = category;
+      button.setAttribute("aria-pressed", index === 0 ? "true" : "false");
+      return button;
+    })
+  );
+
+  const cards = () => qsa("[data-project-card]");
+  const applyFilter = (category) => {
+    qsa(".filter-button", filterBar).forEach((button) => {
+      const isActive = button.dataset.filter === category;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    cards().forEach((card) => {
+      const categoriesForCard = (card.dataset.categories || "").split("|");
+      const shouldShow = category === "All" || categoriesForCard.includes(category);
+      card.hidden = !shouldShow;
+      if (shouldShow && !prefersReducedMotion) {
+        card.classList.remove("is-entering");
+        window.requestAnimationFrame(() => card.classList.add("is-entering"));
+      }
+    });
+  };
+
+  filterBar.addEventListener("click", (event) => {
+    const button = event.target instanceof Element ? event.target.closest("[data-filter]") : null;
+    if (button) {
+      applyFilter(button.dataset.filter);
+    }
+  });
+};
+
 const renderProjects = (projects = []) => {
   const grid = qs("[data-projects]");
   if (!grid) {
@@ -230,6 +283,8 @@ const renderProjects = (projects = []) => {
   grid.replaceChildren(
     ...projects.map((project) => {
       const card = createElement("article", "project-card");
+      card.dataset.projectCard = "";
+      card.dataset.categories = (project.categories || []).join("|");
       const icon = createIcon(project.icon);
       icon.classList.add("project-icon");
 
@@ -259,6 +314,8 @@ const renderProjects = (projects = []) => {
       return card;
     })
   );
+
+  renderProjectFilters(projects);
 };
 
 const renderSkills = (skills = []) => {
@@ -386,6 +443,112 @@ const setupReveal = () => {
   revealTargets.forEach((element) => observer.observe(element));
 };
 
+const parseStatValue = (value = "") => {
+  const match = String(value).match(/^(\d+(?:\.\d+)?)(.*)$/);
+  if (!match) {
+    return null;
+  }
+
+  return {
+    decimals: match[1].includes(".") ? match[1].split(".")[1].length : 0,
+    number: Number(match[1]),
+    suffix: match[2] || ""
+  };
+};
+
+const formatStatValue = (value, suffix, decimals = 0) => {
+  const formatted = decimals > 0 ? value.toFixed(decimals) : Math.round(value).toLocaleString();
+  return `${formatted}${suffix}`;
+};
+
+const animateStat = (element) => {
+  const finalValue = element.dataset.finalValue || element.textContent || "";
+  const parsed = parseStatValue(finalValue);
+
+  if (!parsed || prefersReducedMotion) {
+    element.textContent = finalValue;
+    return;
+  }
+
+  const duration = 880;
+  const start = performance.now();
+
+  const tick = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = parsed.number * eased;
+    element.textContent = formatStatValue(current, parsed.suffix, parsed.decimals);
+
+    if (progress < 1) {
+      window.requestAnimationFrame(tick);
+      return;
+    }
+
+    element.textContent = finalValue;
+  };
+
+  element.textContent = formatStatValue(0, parsed.suffix, parsed.decimals);
+  window.requestAnimationFrame(tick);
+};
+
+const setupAnimatedStats = () => {
+  const statValues = qsa(".stat-value");
+  if (!statValues.length) {
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    statValues.forEach(animateStat);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateStat(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.45 }
+  );
+
+  statValues.forEach((element) => observer.observe(element));
+};
+
+const setupInteractiveCards = () => {
+  if (!window.matchMedia?.("(hover: hover) and (pointer: fine)").matches) {
+    return;
+  }
+
+  const selector = ".project-card, .skill-card, .timeline-content, .contact-panel, .metric-card";
+  document.addEventListener("pointermove", (event) => {
+    const card = event.target instanceof Element ? event.target.closest(selector) : null;
+    if (!card) {
+      return;
+    }
+
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+    card.style.setProperty("--my", `${event.clientY - rect.top}px`);
+  });
+};
+
+const setupTopbarState = () => {
+  const topbar = qs(".topbar");
+  if (!topbar) {
+    return;
+  }
+
+  const updateTopbar = () => {
+    topbar.classList.toggle("is-scrolled", window.scrollY > 16);
+  };
+
+  window.addEventListener("scroll", updateTopbar, { passive: true });
+  updateTopbar();
+};
+
 const setupActiveNavigation = () => {
   const navLinks = qsa(".nav a[href^='#']");
   const sections = navLinks
@@ -426,6 +589,9 @@ const renderPortfolio = (data) => {
   renderTimeline(data.education, "[data-education]");
   renderContact(data);
   setupReveal();
+  setupAnimatedStats();
+  setupInteractiveCards();
+  setupTopbarState();
   setupActiveNavigation();
   document.body.classList.add("is-loaded");
 };
