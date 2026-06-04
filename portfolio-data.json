@@ -255,6 +255,7 @@
       "muted": "#86868b",
       "brand": "#2997ff",
       "brand2": "#0071e3",
+      "heroAccent": "#bf5af2",
       "accent": "#6e6e73",
       "line": "rgba(255, 255, 255, 0.12)",
       "shadow": "0 22px 60px rgba(0, 0, 0, 0.3)"

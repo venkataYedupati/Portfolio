@@ -37,6 +37,7 @@ const CSS_VAR_MAP = {
   bgSoft: "--bg-soft",
   brand: "--brand",
   brand2: "--brand-2",
+  heroAccent: "--hero-accent",
   line: "--line",
   muted: "--muted",
   panel: "--panel",
