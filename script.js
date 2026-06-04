@@ -1,4 +1,9 @@
-const DATA_SOURCE = document.body.dataset.source || "portfolio-data.json";
+const DEFAULT_DATA_SOURCE = "portfolio-data.json";
+const DATA_SOURCE = document.body?.dataset.source || DEFAULT_DATA_SOURCE;
+const FETCH_TIMEOUT_MS = 8000;
+const MAX_FETCH_ATTEMPTS = 2;
+const CATEGORY_SEPARATOR = "\u001F";
+const LINK_VARIANTS = new Set(["primary", "secondary", "ghost"]);
 
 const ICONS = {
   brain: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3a4 4 0 0 0-4 4v.1A4.5 4.5 0 0 0 2 11.4 4.6 4.6 0 0 0 5.3 16 4.2 4.2 0 0 0 9.4 21H10V3H9Zm5 0v18h.6a4.2 4.2 0 0 0 4.1-5A4.6 4.6 0 0 0 22 11.4a4.5 4.5 0 0 0-3-4.3V7a4 4 0 0 0-4-4h-1Z"/></svg>',
@@ -34,6 +39,228 @@ const CSS_VAR_MAP = {
 const qs = (selector, scope = document) => scope.querySelector(selector);
 const qsa = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches || false;
+const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+
+const asRecord = (value) => (value && typeof value === "object" && !Array.isArray(value) ? value : {});
+const asArray = (value) => (Array.isArray(value) ? value : []);
+const asText = (value) => (value === null || value === undefined ? "" : String(value).trim());
+const asTextArray = (value) => asArray(value).map(asText).filter(Boolean);
+const normalizeLinkVariant = (value) => {
+  const variant = asText(value);
+  return LINK_VARIANTS.has(variant) ? variant : "secondary";
+};
+
+const normalizeHref = (href = "") => {
+  const value = asText(href);
+  if (!value) {
+    return "";
+  }
+
+  if (value.startsWith("#")) {
+    return /^#[A-Za-z][\w-]*$/.test(value) ? value : "";
+  }
+
+  try {
+    const url = new URL(value, window.location.href);
+    const allowedProtocols = ["http:", "https:", "mailto:", "tel:"];
+    if (!allowedProtocols.includes(url.protocol)) {
+      return "";
+    }
+
+    if (url.origin === window.location.origin) {
+      return `${url.pathname}${url.search}${url.hash}`;
+    }
+
+    return url.href;
+  } catch {
+    return "";
+  }
+};
+
+const isExternalHref = (href = "") => {
+  try {
+    const url = new URL(href, window.location.href);
+    return ["http:", "https:"].includes(url.protocol) && url.origin !== window.location.origin;
+  } catch {
+    return false;
+  }
+};
+
+const normalizeTextBlock = (value = {}) => {
+  const block = asRecord(value);
+  return {
+    eyebrow: asText(block.eyebrow),
+    summary: asText(block.summary),
+    title: asText(block.title)
+  };
+};
+
+const normalizeTimelineItem = (value = {}) => {
+  const item = asRecord(value);
+  return {
+    label: asText(item.label),
+    period: asText(item.period),
+    place: asText(item.place),
+    summary: asText(item.summary),
+    title: asText(item.title),
+    tools: asTextArray(item.tools)
+  };
+};
+
+const normalizePortfolioData = (value = {}) => {
+  const data = asRecord(value);
+  const site = asRecord(data.site);
+  const profile = asRecord(data.profile);
+  const hero = asRecord(data.hero);
+  const heroPanel = asRecord(hero.panel);
+  const sections = asRecord(data.sections);
+  const contact = asRecord(data.contact);
+  const themes = asRecord(data.themes);
+  const darkTheme = asRecord(themes.dark);
+
+  return {
+    site: {
+      copyrightName: asText(site.copyrightName),
+      description: asText(site.description),
+      faviconInitial: asText(site.faviconInitial),
+      themeColor: asText(site.themeColor),
+      title: asText(site.title)
+    },
+    profile: {
+      email: asText(profile.email),
+      fullName: asText(profile.fullName),
+      location: asText(profile.location),
+      phoneDisplay: asText(profile.phoneDisplay),
+      phoneHref: normalizeHref(profile.phoneHref),
+      resumeLabel: asText(profile.resumeLabel),
+      resumeUrl: normalizeHref(profile.resumeUrl),
+      role: asText(profile.role),
+      shortName: asText(profile.shortName)
+    },
+    navigation: asArray(data.navigation)
+      .map((item) => {
+        const navItem = asRecord(item);
+        return {
+          href: normalizeHref(navItem.href),
+          label: asText(navItem.label)
+        };
+      })
+      .filter((item) => item.href && item.label),
+    hero: {
+      actions: asArray(hero.actions)
+        .map((action) => {
+          const item = asRecord(action);
+          return {
+            href: normalizeHref(item.href),
+            icon: asText(item.icon),
+            label: asText(item.label),
+            variant: normalizeLinkVariant(item.variant)
+          };
+        })
+        .filter((action) => action.href && action.label),
+      eyebrow: asText(hero.eyebrow),
+      headlineParts: asArray(hero.headlineParts)
+        .map((part) => {
+          const item = asRecord(part);
+          return {
+            accent: Boolean(item.accent),
+            text: asText(item.text)
+          };
+        })
+        .filter((part) => part.text),
+      panel: {
+        eyebrow: asText(heroPanel.eyebrow),
+        items: asArray(heroPanel.items)
+          .map((item) => {
+            const panelItem = asRecord(item);
+            return {
+              label: asText(panelItem.label),
+              value: asText(panelItem.value)
+            };
+          })
+          .filter((item) => item.label || item.value),
+        summary: asText(heroPanel.summary),
+        title: asText(heroPanel.title)
+      },
+      signals: asTextArray(hero.signals),
+      summary: asText(hero.summary)
+    },
+    stats: asArray(data.stats)
+      .map((stat) => {
+        const item = asRecord(stat);
+        return {
+          label: asText(item.label),
+          value: asText(item.value)
+        };
+      })
+      .filter((stat) => stat.label || stat.value),
+    sections: {
+      contact: normalizeTextBlock(sections.contact),
+      education: normalizeTextBlock(sections.education),
+      experience: normalizeTextBlock(sections.experience),
+      skills: normalizeTextBlock(sections.skills),
+      work: normalizeTextBlock(sections.work)
+    },
+    skills: asArray(data.skills)
+      .map((skill) => {
+        const item = asRecord(skill);
+        return {
+          icon: asText(item.icon),
+          summary: asText(item.summary),
+          title: asText(item.title),
+          tools: asTextArray(item.tools)
+        };
+      })
+      .filter((skill) => skill.title || skill.summary),
+    projects: asArray(data.projects)
+      .map((project) => {
+        const item = asRecord(project);
+        return {
+          actionLabel: asText(item.actionLabel),
+          categories: asTextArray(item.categories),
+          description: asText(item.description),
+          href: normalizeHref(item.href),
+          icon: asText(item.icon),
+          metrics: asTextArray(item.metrics),
+          title: asText(item.title)
+        };
+      })
+      .filter((project) => project.title || project.description),
+    experience: asArray(data.experience).map(normalizeTimelineItem).filter((item) => item.title || item.place),
+    education: asArray(data.education).map(normalizeTimelineItem).filter((item) => item.title || item.place),
+    contact: {
+      channels: asArray(contact.channels)
+        .map((channel) => {
+          const item = asRecord(channel);
+          return {
+            href: normalizeHref(item.href),
+            icon: asText(item.icon),
+            label: asText(item.label),
+            value: asText(item.value)
+          };
+        })
+        .filter((channel) => channel.label || channel.value),
+      socials: asArray(contact.socials)
+        .map((social) => {
+          const item = asRecord(social);
+          return {
+            href: normalizeHref(item.href),
+            icon: asText(item.icon),
+            label: asText(item.label),
+            value: asText(item.value)
+          };
+        })
+        .filter((social) => social.href && (social.label || social.value))
+    },
+    themes: {
+      dark: Object.fromEntries(
+        Object.keys(CSS_VAR_MAP)
+          .map((key) => [key, asText(darkTheme[key])])
+          .filter(([, themeValue]) => themeValue)
+      )
+    }
+  };
+};
 
 const setText = (selector, value) => {
   const element = typeof selector === "string" ? qs(selector) : selector;
@@ -59,14 +286,20 @@ const createIcon = (name) => {
   return icon;
 };
 
-const isExternalHref = (href = "") => /^https?:\/\//.test(href);
-
 const createLink = ({ href, label, icon, variant = "secondary", compact = false }) => {
-  const link = createElement("a", `btn btn-${variant}${compact ? " btn-compact" : ""}`);
-  link.href = href;
-  if (isExternalHref(href)) {
+  const safeVariant = normalizeLinkVariant(variant);
+  const link = createElement("a", `btn btn-${safeVariant}${compact ? " btn-compact" : ""}`);
+  const safeHref = normalizeHref(href);
+  if (!safeHref) {
+    link.href = "#";
+    link.tabIndex = -1;
+    link.setAttribute("aria-disabled", "true");
+  } else {
+    link.href = safeHref;
+  }
+  if (isExternalHref(safeHref)) {
     link.target = "_blank";
-    link.rel = "noreferrer";
+    link.rel = "noopener noreferrer";
   }
   if (icon) {
     link.append(createIcon(icon));
@@ -76,11 +309,36 @@ const createLink = ({ href, label, icon, variant = "secondary", compact = false 
 };
 
 const loadPortfolioData = async () => {
-  const response = await fetch(DATA_SOURCE, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(`Unable to load ${DATA_SOURCE}`);
+  let lastError;
+
+  for (let attempt = 1; attempt <= MAX_FETCH_ATTEMPTS; attempt += 1) {
+    const controller = "AbortController" in window ? new AbortController() : null;
+    const timeout = controller
+      ? window.setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
+      : null;
+
+    try {
+      const response = await fetch(DATA_SOURCE, {
+        cache: "no-store",
+        signal: controller?.signal
+      });
+      if (!response.ok) {
+        throw new Error(`Unable to load ${DATA_SOURCE}: ${response.status}`);
+      }
+      return normalizePortfolioData(await response.json());
+    } catch (error) {
+      lastError = error;
+      if (attempt < MAX_FETCH_ATTEMPTS) {
+        await wait(250 * attempt);
+      }
+    } finally {
+      if (timeout) {
+        window.clearTimeout(timeout);
+      }
+    }
   }
-  return response.json();
+
+  throw lastError || new Error(`Unable to load ${DATA_SOURCE}`);
 };
 
 const applyMeta = (data) => {
@@ -256,7 +514,7 @@ const renderProjectFilters = (projects = []) => {
     });
 
     cards().forEach((card) => {
-      const categoriesForCard = (card.dataset.categories || "").split("|");
+      const categoriesForCard = (card.dataset.categories || "").split(CATEGORY_SEPARATOR);
       const shouldShow = category === "All" || categoriesForCard.includes(category);
       card.hidden = !shouldShow;
       if (shouldShow && !prefersReducedMotion) {
@@ -284,7 +542,7 @@ const renderProjects = (projects = []) => {
     ...projects.map((project) => {
       const card = createElement("article", "project-card");
       card.dataset.projectCard = "";
-      card.dataset.categories = (project.categories || []).join("|");
+      card.dataset.categories = (project.categories || []).join(CATEGORY_SEPARATOR);
       const icon = createIcon(project.icon);
       icon.classList.add("project-icon");
 
@@ -596,7 +854,8 @@ const renderPortfolio = (data) => {
   document.body.classList.add("is-loaded");
 };
 
-const renderDataError = () => {
+const renderDataError = (error) => {
+  console.error("Portfolio data load failed", error);
   const main = qs("main");
   if (!main) {
     return;
@@ -604,7 +863,13 @@ const renderDataError = () => {
 
   const section = createElement("section", "error-state shell");
   section.append(createElement("h1", "", "Portfolio data was not loaded"));
-  section.append(createElement("p", "", "Serve this folder with a local web server so the JSON data file can be loaded."));
+  section.append(createElement("p", "", "Refresh the page to retry loading the portfolio data."));
+  const actions = createElement("div", "error-actions");
+  const retry = createElement("button", "btn btn-primary", "Retry");
+  retry.type = "button";
+  retry.addEventListener("click", () => window.location.reload());
+  actions.append(retry);
+  section.append(actions);
   main.replaceChildren(section);
 };
 

@@ -45,6 +45,30 @@ a {
   text-decoration: none;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 40;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #ffffff;
+  background: var(--brand-2);
+  font-size: 0.86rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.7rem);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.skip-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 button,
 input,
 textarea,
@@ -804,7 +828,7 @@ section[id] {
 .error-state {
   width: min(720px, 92vw);
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 1.25rem;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
@@ -820,6 +844,13 @@ section[id] {
 
 .error-state p {
   color: var(--muted);
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
 
 .reveal {
