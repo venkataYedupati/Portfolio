@@ -3,7 +3,8 @@
     "title": "Venkata Siva Sai Krishna Prasad Yedupati | Portfolio",
     "description": "Software engineering portfolio for Venkata Siva Sai Krishna Prasad Yedupati, focused on backend systems, cloud infrastructure, distributed systems, security analytics, and applied AI.",
     "themeColor": "#000000",
-    "faviconInitial": "V",
+    "faviconIcon": "network",
+    "faviconInitial": "",
     "copyrightName": "Venkata Siva Sai Krishna Prasad Yedupati"
   },
   "profile": {

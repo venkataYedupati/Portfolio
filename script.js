@@ -21,6 +21,16 @@ const ICONS = {
   server: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 9h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2Zm13-6v1.8h2V7h-2Zm0 9v1.8h2V16h-2Z"/></svg>'
 };
 
+const FAVICON_PATHS = {
+  network: [
+    '<path d="M32 18v18M14 38h36M14 38v9M50 38v9M32 36v11"/>',
+    '<rect x="23" y="8" width="18" height="12" rx="3"/>',
+    '<rect x="5" y="45" width="18" height="12" rx="3"/>',
+    '<rect x="23" y="45" width="18" height="12" rx="3"/>',
+    '<rect x="41" y="45" width="18" height="12" rx="3"/>'
+  ].join("")
+};
+
 const CSS_VAR_MAP = {
   accent: "--accent",
   bg: "--bg",
@@ -122,6 +132,7 @@ const normalizePortfolioData = (value = {}) => {
     site: {
       copyrightName: asText(site.copyrightName),
       description: asText(site.description),
+      faviconIcon: asText(site.faviconIcon),
       faviconInitial: asText(site.faviconInitial),
       themeColor: asText(site.themeColor),
       title: asText(site.title)
@@ -353,16 +364,24 @@ const applyMeta = (data) => {
   }
 };
 
-const setFavicon = (initial, theme) => {
+const setFavicon = (site = {}, theme = {}) => {
   const favicon = qs("#site-favicon");
-  if (!favicon || !initial) {
+  if (!favicon) {
     return;
   }
 
+  const iconPath = FAVICON_PATHS[site.faviconIcon] || FAVICON_PATHS.network;
+  const fallbackInitial = asText(site.faviconInitial).slice(0, 1);
+  const foreground = theme.brand || "#2997ff";
+  const background = theme.bg || "#000000";
+  const symbol = iconPath
+    ? `<g fill="none" stroke="${foreground}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${iconPath}</g>`
+    : `<text x="50%" y="56%" font-size="30" font-weight="800" text-anchor="middle" fill="${foreground}" font-family="Arial, sans-serif">${fallbackInitial || "V"}</text>`;
+
   const svg = [
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">',
-    `<rect width="64" height="64" rx="12" fill="${theme.bg || "#10130f"}"/>`,
-    `<text x="50%" y="56%" font-size="30" font-weight="800" text-anchor="middle" fill="${theme.brand || "#2997ff"}" font-family="Arial, sans-serif">${initial}</text>`,
+    `<rect width="64" height="64" rx="14" fill="${background}"/>`,
+    symbol,
     "</svg>"
   ].join("");
 
@@ -387,7 +406,7 @@ const applyTheme = (data) => {
     meta.setAttribute("content", theme.bg || data.site?.themeColor || "#10130f");
   }
 
-  setFavicon(data.site?.faviconInitial, theme);
+  setFavicon(data.site, theme);
 };
 
 const renderNavigation = ({ navigation = [], profile = {} }) => {
