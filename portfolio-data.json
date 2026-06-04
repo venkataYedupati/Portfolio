@@ -242,16 +242,16 @@
     "dark": {
       "bg": "#000000",
       "bgSoft": "#000000",
-      "surface": "#171a18",
-      "panel": "rgba(24, 27, 25, 0.9)",
-      "panelStrong": "#1e2421",
-      "text": "#f7f7f2",
-      "muted": "#a8aca6",
+      "surface": "#0b0b0c",
+      "panel": "#1d1d1f",
+      "panelStrong": "#2d2d2f",
+      "text": "#f5f5f7",
+      "muted": "#86868b",
       "brand": "#2997ff",
-      "brand2": "#bf5af2",
-      "accent": "#8e8e93",
-      "line": "rgba(247, 247, 242, 0.12)",
-      "shadow": "0 26px 70px rgba(0, 0, 0, 0.34)"
+      "brand2": "#0071e3",
+      "accent": "#6e6e73",
+      "line": "rgba(255, 255, 255, 0.12)",
+      "shadow": "0 22px 60px rgba(0, 0, 0, 0.3)"
     }
   }
 }
