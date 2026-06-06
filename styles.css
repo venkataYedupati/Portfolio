@@ -202,8 +202,7 @@ select {
 }
 
 .btn:focus-visible,
-.icon-button:focus-visible,
-.filter-button:focus-visible {
+.icon-button:focus-visible {
   outline: 2px solid var(--brand);
   outline-offset: 3px;
 }
@@ -478,40 +477,6 @@ section[id] {
 
 .section-heading p:last-child {
   margin: 0.75rem 0 0;
-}
-
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  max-width: 760px;
-  margin: -1.05rem auto 2rem;
-}
-
-.filter-button {
-  min-height: 34px;
-  padding: 0.35rem 0.82rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--muted);
-  background: rgba(255, 255, 255, 0.05);
-  cursor: pointer;
-  font-size: 0.82rem;
-  font-weight: 600;
-  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-}
-
-.filter-button:hover {
-  color: var(--text);
-  border-color: color-mix(in srgb, var(--brand) 38%, var(--line));
-  transform: translateY(-1px);
-}
-
-.filter-button.is-active {
-  color: #ffffff;
-  border-color: var(--brand-2);
-  background: var(--brand-2);
 }
 
 .work-grid {
@@ -977,18 +942,6 @@ section[id] {
   .signal,
   .tag {
     max-width: 100%;
-  }
-
-  .filter-bar {
-    justify-content: flex-start;
-    margin-top: -0.8rem;
-    overflow-x: auto;
-    padding-bottom: 0.2rem;
-    scrollbar-width: none;
-  }
-
-  .filter-bar::-webkit-scrollbar {
-    display: none;
   }
 
   .section {

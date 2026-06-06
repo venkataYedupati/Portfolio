@@ -2,7 +2,6 @@ const DEFAULT_DATA_SOURCE = "portfolio-data.json";
 const DATA_SOURCE = document.body?.dataset.source || DEFAULT_DATA_SOURCE;
 const FETCH_TIMEOUT_MS = 8000;
 const MAX_FETCH_ATTEMPTS = 2;
-const CATEGORY_SEPARATOR = "\u001F";
 const LINK_VARIANTS = new Set(["primary", "secondary", "ghost"]);
 
 const ICONS = {
@@ -502,56 +501,6 @@ const renderSectionHeading = (key, section = {}) => {
   setText(`[data-${key}-summary]`, section.summary);
 };
 
-const renderProjectFilters = (projects = []) => {
-  const filterBar = qs("[data-project-filters]");
-  if (!filterBar) {
-    return;
-  }
-
-  const categories = ["All", ...new Set(projects.flatMap((project) => project.categories || []))];
-  if (categories.length <= 1) {
-    filterBar.hidden = true;
-    return;
-  }
-
-  filterBar.hidden = false;
-  filterBar.replaceChildren(
-    ...categories.map((category, index) => {
-      const button = createElement("button", `filter-button${index === 0 ? " is-active" : ""}`, category);
-      button.type = "button";
-      button.dataset.filter = category;
-      button.setAttribute("aria-pressed", index === 0 ? "true" : "false");
-      return button;
-    })
-  );
-
-  const cards = () => qsa("[data-project-card]");
-  const applyFilter = (category) => {
-    qsa(".filter-button", filterBar).forEach((button) => {
-      const isActive = button.dataset.filter === category;
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", isActive ? "true" : "false");
-    });
-
-    cards().forEach((card) => {
-      const categoriesForCard = (card.dataset.categories || "").split(CATEGORY_SEPARATOR);
-      const shouldShow = category === "All" || categoriesForCard.includes(category);
-      card.hidden = !shouldShow;
-      if (shouldShow && !prefersReducedMotion) {
-        card.classList.remove("is-entering");
-        window.requestAnimationFrame(() => card.classList.add("is-entering"));
-      }
-    });
-  };
-
-  filterBar.addEventListener("click", (event) => {
-    const button = event.target instanceof Element ? event.target.closest("[data-filter]") : null;
-    if (button) {
-      applyFilter(button.dataset.filter);
-    }
-  });
-};
-
 const renderProjects = (projects = []) => {
   const grid = qs("[data-projects]");
   if (!grid) {
@@ -562,7 +511,6 @@ const renderProjects = (projects = []) => {
     ...projects.map((project) => {
       const card = createElement("article", "project-card");
       card.dataset.projectCard = "";
-      card.dataset.categories = (project.categories || []).join(CATEGORY_SEPARATOR);
       const icon = createIcon(project.icon);
       icon.classList.add("project-icon");
 
@@ -592,8 +540,6 @@ const renderProjects = (projects = []) => {
       return card;
     })
   );
-
-  renderProjectFilters(projects);
 };
 
 const renderSkills = (skills = []) => {
