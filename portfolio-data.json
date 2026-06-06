@@ -171,6 +171,14 @@
   "experience": [
     {
       "label": "Internship",
+      "title": "Software Engineer Intern",
+      "place": "Bio-Rad Laboratories",
+      "period": "Summer 2026",
+      "summary": "Joining Bio-Rad Laboratories as a Software Engineer Intern, contributing to software engineering work across product and internal systems.",
+      "tools": ["Software Engineering", "Product Systems", "Testing", "Cross-functional Collaboration"]
+    },
+    {
+      "label": "Internship",
       "title": "Back End Developer",
       "place": "Festa",
       "period": "Jan 2024 - Dec 2024 | Bengaluru, India | Hybrid",
