@@ -3,115 +3,539 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio" />
+
+    <title>Venkata Yedupati — Software Engineer | Backend, Distributed Systems, Applied AI</title>
+    <meta
+      name="description"
+      content="Venkata Siva Sai Krishna Prasad Yedupati — software engineer in San Jose building backend services, distributed systems, and applied-AI pipelines in Go, C, CUDA, Python, and TypeScript. MS Software Engineering, San Jose State University."
+    />
+    <meta name="author" content="Venkata Siva Sai Krishna Prasad Yedupati" />
     <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://venkatayedupati.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Venkata Yedupati" />
+    <meta property="og:title" content="Venkata Yedupati — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Backend services, distributed systems, and applied-AI pipelines in Go, C, CUDA, Python, and TypeScript. MS Software Engineering @ SJSU."
+    />
+    <meta property="og:url" content="https://venkatayedupati.vercel.app/" />
+    <meta property="og:image" content="https://venkatayedupati.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Venkata Yedupati — Software Engineer. Backend, Distributed Systems, Applied AI." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Venkata Yedupati — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Backend services, distributed systems, and applied-AI pipelines in Go, C, CUDA, Python, and TypeScript."
+    />
+    <meta name="twitter:image" content="https://venkatayedupati.vercel.app/og-image.png" />
+
     <link
       id="site-favicon"
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000000'/%3E%3Cg fill='none' stroke='%232997ff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M32 18v18M14 38h36M14 38v9M50 38v9M32 36v11'/%3E%3Crect x='23' y='8' width='18' height='12' rx='3'/%3E%3Crect x='5' y='45' width='18' height='12' rx='3'/%3E%3Crect x='23' y='45' width='18' height='12' rx='3'/%3E%3Crect x='41' y='45' width='18' height='12' rx='3'/%3E%3C/g%3E%3C/svg%3E"
     />
-    <title>Portfolio</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=robust-ui" />
+    <link rel="stylesheet" href="styles.css?v=2" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Venkata Siva Sai Krishna Prasad Yedupati",
+        "alternateName": "Venkata Yedupati",
+        "url": "https://venkatayedupati.vercel.app/",
+        "email": "mailto:venkatasivasaikrishnaprasad.yedupati@sjsu.edu",
+        "jobTitle": "Software Engineer",
+        "description": "Software engineer focused on backend services, distributed systems, and applied AI.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San Jose",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "San Jose State University" },
+          { "@type": "CollegeOrUniversity", "name": "SRM Institute of Science and Technology" }
+        ],
+        "knowsAbout": [
+          "Backend Engineering", "Distributed Systems", "Cloud Infrastructure",
+          "Applied Machine Learning", "Go", "C", "CUDA", "Python", "TypeScript"
+        ],
+        "sameAs": [
+          "https://github.com/venkatayedupati",
+          "https://www.linkedin.com/in/venkatayedupati/",
+          "https://leetcode.com/u/Venkatasai0234/"
+        ]
+      }
+    </script>
   </head>
-  <body data-source="portfolio-data.json">
+  <body>
+    <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="i-code" viewBox="0 0 24 24"><path fill="currentColor" d="m8.7 16.6-5-5 5-5 1.4 1.4-3.6 3.6 3.6 3.6-1.4 1.4Zm6.6 0-1.4-1.4 3.6-3.6-3.6-3.6 1.4-1.4 5 5-5 5Zm-3.9 1.2-1.9-.6 3.1-10.4 1.9.6-3.1 10.4Z"/></symbol>
+        <symbol id="i-server" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 9h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2Zm13-6v1.8h2V7h-2Zm0 9v1.8h2V16h-2Z"/></symbol>
+        <symbol id="i-network" viewBox="0 0 24 24"><path fill="currentColor" d="M10 3h4v4h-4V3Zm-7 14h4v4H3v-4Zm14 0h4v4h-4v-4ZM5 9h14v2h-6v3h-2v-3H5V9Zm-1 5h2v2H4v-2Zm14 0h2v2h-2v-2Z"/></symbol>
+        <symbol id="i-cloud" viewBox="0 0 24 24"><path fill="currentColor" d="M19.3 18H8a5 5 0 0 1-.8-9.9A7 7 0 0 1 20.7 11 3.6 3.6 0 0 1 19.3 18ZM8 16h11.3a1.6 1.6 0 0 0 .4-3.1l-1.1-.3v-1.1A5 5 0 0 0 9 9.5l-.4.8-.9-.2A3 3 0 0 0 8 16Z"/></symbol>
+        <symbol id="i-database" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-4.4 0-8 1.4-8 3.2v11.6C4 19.6 7.6 21 12 21s8-1.4 8-3.2V6.2C20 4.4 16.4 3 12 3Zm0 2c3.6 0 5.6.9 6 1.3-.4.4-2.4 1.3-6 1.3s-5.6-.9-6-1.3C6.4 5.9 8.4 5 12 5Zm6 7.4c-.9.7-3.2 1.3-6 1.3s-5.1-.6-6-1.3V9c1.5.7 3.6 1 6 1s4.5-.3 6-1v3.4Zm-6 6.6c-3.6 0-5.6-.9-6-1.3v-3c1.5.7 3.6 1 6 1s4.5-.3 6-1v3c-.4.4-2.4 1.3-6 1.3Z"/></symbol>
+        <symbol id="i-cpu" viewBox="0 0 24 24"><path fill="currentColor" d="M9 2h2v3H9V2Zm4 0h2v3h-2V2ZM2 9h3v2H2V9Zm0 4h3v2H2v-2Zm7 6h2v3H9v-3Zm4 0h2v3h-2v-3Zm6-10h3v2h-3V9Zm0 4h3v2h-3v-2ZM6 6h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm2 3v6h8V9H8Z"/></symbol>
+        <symbol id="i-zap" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13l0-8Z"/></symbol>
+        <symbol id="i-link" viewBox="0 0 24 24"><path fill="currentColor" d="M10.6 13.4a1 1 0 0 1 0-1.4l3-3a3 3 0 1 1 4.2 4.2l-1.6 1.6-1.4-1.4 1.6-1.6a1 1 0 0 0-1.4-1.4l-3 3a1 1 0 0 1-1.4 0Zm2.8-2.8a1 1 0 0 1 0 1.4l-3 3a3 3 0 1 1-4.2-4.2l1.6-1.6 1.4 1.4-1.6 1.6a1 1 0 0 0 1.4 1.4l3-3a1 1 0 0 1 1.4 0Z"/></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><path fill="currentColor" d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-3.3 0-8 1.7-8 5v3h16v-3c0-3.3-4.7-5-8-5Zm7.8.1c1.6 1.1 2.7 2.6 2.7 4.9v3H24v-3c0-2.7-3.4-4.3-6.2-4.8ZM16 11a4 4 0 1 0-1.8-7.6 6 6 0 0 1 0 7.2c.6.3 1.2.4 1.8.4Z"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm-1 13-3-3 1.4-1.4L11 12.2l4.2-4.2L16.6 9 11 15Z"/></symbol>
+        <symbol id="i-brain" viewBox="0 0 24 24"><path fill="currentColor" d="M9 3a4 4 0 0 0-4 4v.1A4.5 4.5 0 0 0 2 11.4 4.6 4.6 0 0 0 5.3 16 4.2 4.2 0 0 0 9.4 21H10V3H9Zm5 0v18h.6a4.2 4.2 0 0 0 4.1-5A4.6 4.6 0 0 0 22 11.4a4.5 4.5 0 0 0-3-4.3V7a4 4 0 0 0-4-4h-1Z"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.2-8 5-8-5V6l8 5 8-5v2.2Z"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.4a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.2 1l-2.2 2.2Z"/></symbol>
+        <symbol id="i-location" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM9.5 10H6.8v8h2.7v-8Zm.2-2.5a1.6 1.6 0 1 0-3.2 0 1.6 1.6 0 0 0 3.2 0Zm8.3 5.7c0-2.3-1.2-3.4-2.8-3.4-1.3 0-1.9.7-2.2 1.2v-1h-2.7v8H13v-4c0-1.1.2-2.1 1.5-2.1s1.3 1.2 1.3 2.2V18H18v-4.8Z"/></symbol>
+      </defs>
+    </svg>
+
     <a class="skip-link" href="#work">Skip to work</a>
+
     <header class="topbar shell">
-      <a class="brand" href="#home" data-brand aria-label="Home"></a>
-      <nav class="nav" data-nav aria-label="Primary navigation"></nav>
+      <a class="brand" href="#home" aria-label="Home">Venkata Yedupati</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
       <div class="top-actions">
-        <a class="btn btn-ghost btn-compact" data-resume-link target="_blank" rel="noopener noreferrer" hidden></a>
+        <a class="btn btn-ghost btn-compact" href="https://github.com/venkatayedupati" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github" /></svg><span>GitHub</span></a>
       </div>
     </header>
 
     <main id="home">
       <section class="hero shell" data-reveal>
         <div class="hero-copy">
-          <p class="eyebrow" data-hero-eyebrow></p>
-          <h1 data-hero-title></h1>
-          <p class="hero-summary" data-hero-summary></p>
-          <div class="cta-row" data-hero-actions></div>
-          <div class="signal-strip" data-hero-signals></div>
+          <p class="eyebrow">Venkata Siva Sai Krishna Prasad Yedupati</p>
+          <h1>
+            Backend Systems.<br />
+            <span class="gradient-text">Distributed Reliability.</span><br />
+            Applied AI.
+          </h1>
+          <p class="hero-summary">
+            Software engineer in San Jose building APIs, distributed coordination
+            layers, and cloud-backed AI pipelines &mdash; in Go, C, CUDA, Python,
+            and TypeScript, with an eye for correctness, observability, and
+            production readiness.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#work"><svg class="icon"><use href="#i-code" /></svg><span>View Work</span></a>
+            <a class="btn btn-secondary" href="mailto:venkatasivasaikrishnaprasad.yedupati@sjsu.edu"><svg class="icon"><use href="#i-mail" /></svg><span>Email Me</span></a>
+          </div>
+          <div class="signal-strip">
+            <span class="signal">Backend Platforms</span>
+            <span class="signal">Distributed Systems</span>
+            <span class="signal">Systems &amp; Performance</span>
+            <span class="signal">Applied AI</span>
+          </div>
         </div>
-
       </section>
 
       <aside class="hero-brief shell" aria-label="Engineering profile summary" data-reveal>
-        <p class="eyebrow" data-hero-panel-eyebrow></p>
-        <h2 data-hero-panel-title></h2>
-        <p class="hero-brief-summary" data-hero-panel-summary></p>
-        <div class="brief-list" data-hero-panel-items></div>
+        <p class="eyebrow">Professional focus</p>
+        <h2>Reliable engineering across backend services, distributed systems, and intelligent pipelines.</h2>
+        <p class="hero-brief-summary">
+          A focused profile for teams that value clear ownership, practical system
+          design, and production-minded delivery.
+        </p>
+        <div class="brief-list">
+          <div class="brief-item"><small>Location</small><strong>San Jose, CA, USA</strong></div>
+          <div class="brief-item"><small>Current path</small><strong>MS Software Engineering, San Jose State University</strong></div>
+          <div class="brief-item"><small>Target roles</small><strong>Software Engineer, Backend Engineer, Systems Engineer</strong></div>
+          <div class="brief-item"><small>Core strengths</small><strong>APIs, distributed coordination, observability, performance</strong></div>
+        </div>
       </aside>
 
       <section class="metrics-band" data-reveal>
         <div class="shell">
-          <div class="metrics-grid" data-stats></div>
+          <div class="metrics-grid">
+            <article class="metric-card"><strong class="stat-value" data-final-value="12+">12+</strong><span>Public engineering repositories</span></article>
+            <article class="metric-card"><strong class="stat-value" data-final-value="6">6</strong><span>Languages across projects &mdash; Go, C, CUDA, Python, TypeScript, Java</span></article>
+            <article class="metric-card"><strong class="stat-value" data-final-value="3">3</strong><span>Engineering internships</span></article>
+            <article class="metric-card"><strong class="stat-value" data-final-value="100+">100+</strong><span>LeetCode problems solved</span></article>
+          </div>
         </div>
       </section>
 
       <section class="section shell" id="work" data-reveal>
         <div class="section-heading">
-          <p class="eyebrow" data-work-eyebrow></p>
-          <h2 data-work-title></h2>
-          <p data-work-summary></p>
+          <p class="eyebrow">Selected work</p>
+          <h2>Selected Work</h2>
+          <p>
+            Focused builds that show implementation depth &mdash; from register-level
+            firmware and GPU kernels to Raft-backed stores, streaming analytics, and
+            CRDT collaboration. Every card links the repository and its design notes.
+          </p>
         </div>
-        <div class="work-grid" data-projects></div>
+        <div class="work-grid">
+          <article class="project-card featured">
+            <div class="project-header">
+              <svg class="icon project-icon"><use href="#i-cpu" /></svg>
+              <h3>BMS Firmware Simulator</h3>
+            </div>
+            <p class="project-description">
+              An automotive Battery Management System ECU simulated end to end in C:
+              a 2-state Kalman filter estimating state of charge and current-sensor
+              bias, a debounced/latching fault state machine, and CAN-FD reporting
+              against a cantools-verified DBC. OS calls and CAN transport sit behind
+              clean interfaces with two real ports &mdash; FreeRTOS on QEMU and a
+              SocketCAN backend &mdash; plus libFuzzer fuzzing, ASan/UBSan/TSan, and
+              coverage in CI. No hardware required.
+            </p>
+            <div class="tag-row">
+              <span class="tag">C</span><span class="tag">FreeRTOS</span><span class="tag">QEMU</span>
+              <span class="tag">CAN-FD</span><span class="tag">Kalman Filter</span><span class="tag">libFuzzer</span><span class="tag">CI</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-compact" href="https://github.com/venkatayedupati/bms-firmware-sim" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github" /></svg><span>GitHub</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <svg class="icon project-icon"><use href="#i-zap" /></svg>
+              <h3>fastgemm</h3>
+            </div>
+            <p class="project-description">
+              A CUDA SGEMM kernel library optimized stage by stage from a naive
+              baseline toward cuBLAS-competitive throughput. Each stage is motivated
+              by a specific Nsight Compute metric from the previous one, and every
+              kernel is checked for numerical correctness against cublasSgemm in
+              pedantic-math mode across a matrix-size sweep.
+            </p>
+            <div class="tag-row">
+              <span class="tag">CUDA</span><span class="tag">C++</span><span class="tag">Nsight Compute</span>
+              <span class="tag">CMake</span><span class="tag">GPU Performance</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-compact" href="https://github.com/venkatayedupati/fastgemm" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github" /></svg><span>GitHub</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <svg class="icon project-icon"><use href="#i-database" /></svg>
+              <h3>Distributed Key-Value Store</h3>
+            </div>
+            <p class="project-description">
+              A distributed KV store built from scratch in Go: Raft-style leader
+              election and log replication, consistent hashing with virtual nodes, a
+              custom gRPC peer transport, LevelDB persistence with snapshotting, a
+              REST API, and a five-node Docker Compose cluster wired to Prometheus
+              and Grafana.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Go</span><span class="tag">Raft</span><span class="tag">gRPC</span>
+              <span class="tag">LevelDB</span><span class="tag">Consistent Hashing</span><span class="tag">Prometheus</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-compact" href="https://github.com/venkatayedupati/Distributed-Key-Value-Store" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github" /></svg><span>GitHub</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <svg class="icon project-icon"><use href="#i-link" /></svg>
+              <h3>URL Shortener + Analytics Platform</h3>
+            </div>
+            <p class="project-description">
+              A URL shortener with Redis-backed hot redirects, token-bucket rate
+              limiting, Kafka click-event ingestion, and PostgreSQL rollups, paired
+              with a React + TypeScript dashboard for geo, device, referrer, and
+              time-series analytics. Ships with an architecture doc, ADRs, and AWS
+              ECS deployment scaffolding.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Go</span><span class="tag">Kafka</span><span class="tag">Redis</span>
+              <span class="tag">PostgreSQL</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">AWS ECS</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-compact" href="https://github.com/venkatayedupati/URL-shortener-analytics-platform" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github" /></svg><span>GitHub</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <svg class="icon project-icon"><use href="#i-users" /></svg>
+              <h3>Real-Time Collaborative Editor</h3>
+            </div>
+            <p class="project-description">
+              A Google Docs-style collaborative editor built on Yjs CRDTs, with a
+              Node.js + TypeScript WebSocket server, Redis pub/sub and stream replay
+              for cross-instance sync, PostgreSQL snapshots, JWT auth with rotating
+              refresh tokens, and a React 18 + Tiptap frontend. Covered by Jest and
+              Playwright tests.
+            </p>
+            <div class="tag-row">
+              <span class="tag">TypeScript</span><span class="tag">Yjs CRDT</span><span class="tag">WebSockets</span>
+              <span class="tag">Redis</span><span class="tag">PostgreSQL</span><span class="tag">React</span><span class="tag">Playwright</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-compact" href="https://github.com/venkatayedupati/Real-Time-Collaborative-Editor" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github" /></svg><span>GitHub</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <svg class="icon project-icon"><use href="#i-shield" /></svg>
+              <h3>Behavioral SIEM Correlation Engine</h3>
+            </div>
+            <p class="project-description">
+              A distributed SIEM correlation engine for endpoint, network, and cloud
+              telemetry: Kafka ingestion, behavioral feature windows, a
+              SIGMA-compatible rule engine, DBSCAN and Isolation Forest anomaly
+              scoring, risk-based alerting into Slack and PagerDuty, Elasticsearch
+              and Kibana output, and Kubernetes manifests for EKS.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Python</span><span class="tag">Kafka</span><span class="tag">scikit-learn</span>
+              <span class="tag">SIGMA</span><span class="tag">Elasticsearch</span><span class="tag">Kubernetes</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-compact" href="https://github.com/venkatayedupati/behavioral-siem" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github" /></svg><span>GitHub</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <svg class="icon project-icon"><use href="#i-brain" /></svg>
+              <h3>Meeting Intelligence System</h3>
+            </div>
+            <p class="project-description">
+              An end-to-end NLP pipeline that turns raw meeting transcripts into
+              structured output &mdash; action items, decisions, topic segments, and
+              summaries, with semantic search over Sentence Transformers plus
+              reranking &mdash; behind a FastAPI service with a Streamlit UI and an
+              offline retrieval fallback for reliable demos.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Sentence Transformers</span>
+              <span class="tag">NLP</span><span class="tag">Streamlit</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-compact" href="https://github.com/venkatayedupati/meeting-intelligence-system" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github" /></svg><span>GitHub</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="section-note">
+          More on <a href="https://github.com/venkatayedupati?tab=repositories" target="_blank" rel="noopener noreferrer">github.com/venkatayedupati</a>
+          &mdash; a Go ride-sharing dispatch backend, a CI/CD pipeline engine, an on-device RAG assistant, and more.
+        </p>
       </section>
 
       <section class="section section-split shell" id="skills" data-reveal>
         <div class="section-heading sticky-heading">
-          <p class="eyebrow" data-skills-eyebrow></p>
-          <h2 data-skills-title></h2>
-          <p data-skills-summary></p>
+          <p class="eyebrow">Core stack</p>
+          <h2>Core Engineering Stack</h2>
+          <p>
+            Grouped by production responsibility: designing APIs, coordinating
+            distributed systems, operating cloud infrastructure, tuning data and
+            compute paths, and shipping ML-backed workflows.
+          </p>
         </div>
-        <div class="skill-grid" data-skills></div>
+        <div class="skill-grid">
+          <article class="skill-card">
+            <svg class="icon skill-icon"><use href="#i-server" /></svg>
+            <h3>Backend Engineering</h3>
+            <p>API-first services, async workflows, and resilient server-side architecture.</p>
+            <div class="tag-row">
+              <span class="tag">Go</span><span class="tag">Python</span><span class="tag">Java</span>
+              <span class="tag">Node.js</span><span class="tag">FastAPI</span><span class="tag">NestJS</span>
+            </div>
+          </article>
+          <article class="skill-card">
+            <svg class="icon skill-icon"><use href="#i-network" /></svg>
+            <h3>Distributed Systems</h3>
+            <p>Consensus, replication, partitioning, and messaging for coordinated services.</p>
+            <div class="tag-row">
+              <span class="tag">Raft</span><span class="tag">gRPC</span><span class="tag">Kafka</span>
+              <span class="tag">Consistent Hashing</span><span class="tag">Redis Pub/Sub</span><span class="tag">CRDTs</span>
+            </div>
+          </article>
+          <article class="skill-card">
+            <svg class="icon skill-icon"><use href="#i-cloud" /></svg>
+            <h3>Cloud &amp; Infrastructure</h3>
+            <p>Secure deployments, container workflows, and scalable infrastructure patterns.</p>
+            <div class="tag-row">
+              <span class="tag">AWS (ECS, VPC, IAM)</span><span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
+            </div>
+          </article>
+          <article class="skill-card">
+            <svg class="icon skill-icon"><use href="#i-database" /></svg>
+            <h3>Data Systems</h3>
+            <p>Storage engines, indexing, caching, and latency-aware access layers.</p>
+            <div class="tag-row">
+              <span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">LevelDB</span>
+              <span class="tag">Elasticsearch</span><span class="tag">SQL</span>
+            </div>
+          </article>
+          <article class="skill-card">
+            <svg class="icon skill-icon"><use href="#i-cpu" /></svg>
+            <h3>Systems &amp; Performance</h3>
+            <p>Low-level C, GPU kernels, and profiler-driven optimization on real hardware models.</p>
+            <div class="tag-row">
+              <span class="tag">C</span><span class="tag">CUDA</span><span class="tag">FreeRTOS</span>
+              <span class="tag">QEMU</span><span class="tag">Nsight</span><span class="tag">Sanitizers</span>
+            </div>
+          </article>
+          <article class="skill-card">
+            <svg class="icon skill-icon"><use href="#i-brain" /></svg>
+            <h3>Applied Machine Learning</h3>
+            <p>Anomaly detection, embeddings, and production-minded NLP pipelines.</p>
+            <div class="tag-row">
+              <span class="tag">scikit-learn</span><span class="tag">XGBoost</span>
+              <span class="tag">Sentence Transformers</span><span class="tag">NLP</span><span class="tag">Anomaly Detection</span>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="section shell" id="experience" data-reveal>
         <div class="section-heading">
-          <p class="eyebrow" data-experience-eyebrow></p>
-          <h2 data-experience-title></h2>
-          <p data-experience-summary></p>
+          <p class="eyebrow">Experience</p>
+          <h2>Engineering Experience</h2>
+          <p>Backend and cloud engineering roles focused on API development, secure infrastructure, and production-minded delivery.</p>
         </div>
-        <div class="timeline" data-experience></div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-label">Internship</p>
+              <h3>Bio-Rad Laboratories</h3>
+              <p class="timeline-role">Software Engineer Intern</p>
+              <p class="timeline-meta">Summer 2026</p>
+              <p class="timeline-summary">
+                Contributed to software engineering work across product and internal
+                systems &mdash; feature development, testing, and cross-functional
+                collaboration with engineering and product partners.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Software Engineering</span><span class="tag">Testing</span><span class="tag">Cross-functional Collaboration</span>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-label">Internship</p>
+              <h3>Festa</h3>
+              <p class="timeline-role">Back End Developer</p>
+              <p class="timeline-meta">Jan 2024 &ndash; Dec 2024 &middot; Bengaluru, India &middot; Hybrid</p>
+              <p class="timeline-summary">
+                Developed backend services for festa.world with NestJS, building and
+                maintaining APIs that supported product features across application
+                workflows.
+              </p>
+              <div class="tag-row">
+                <span class="tag">NestJS</span><span class="tag">TypeScript</span><span class="tag">REST APIs</span><span class="tag">Backend Engineering</span>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-label">Cloud Experience</p>
+              <h3>AWS Academy</h3>
+              <p class="timeline-role">AWS Cloud Engineering Intern</p>
+              <p class="timeline-meta">May 2023 &ndash; Jul 2023</p>
+              <p class="timeline-summary">
+                Designed a secure VPC architecture with IAM governance and tuned the
+                performance of a two-tier AWS deployment.
+              </p>
+              <div class="tag-row">
+                <span class="tag">AWS</span><span class="tag">VPC</span><span class="tag">IAM</span><span class="tag">Cloud Architecture</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="section shell" id="education" data-reveal>
         <div class="section-heading">
-          <p class="eyebrow" data-education-eyebrow></p>
-          <h2 data-education-title></h2>
-          <p data-education-summary></p>
+          <p class="eyebrow">Education</p>
+          <h2>Academic Background</h2>
+          <p>Graduate software engineering study built on a cloud-computing computer science foundation.</p>
         </div>
-        <div class="timeline" data-education></div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-label">Graduate Education</p>
+              <h3>MS Software Engineering</h3>
+              <p class="timeline-meta">San Jose State University &middot; Jan 2025 &ndash; Dec 2026</p>
+              <p class="timeline-summary">
+                Coursework and project work across software systems, cloud platforms,
+                data-intensive applications, and applied AI.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-label">Undergraduate Education</p>
+              <h3>BTech, Computer Science &amp; Engineering (Cloud Computing)</h3>
+              <p class="timeline-meta">SRM Institute of Science and Technology</p>
+              <p class="timeline-summary">
+                A computer science foundation with emphasis on cloud computing,
+                distributed applications, and full-stack engineering.
+              </p>
+            </div>
+          </article>
+        </div>
       </section>
-
     </main>
 
     <footer class="footer" id="contact" data-reveal>
       <div class="shell footer-layout">
         <div class="footer-copy">
-          <p class="eyebrow" data-contact-eyebrow></p>
-          <h2 data-contact-title></h2>
-          <p data-contact-summary></p>
+          <p class="eyebrow">Contact</p>
+          <h2>Available for engineering conversations</h2>
+          <p>Open to software engineering, backend, distributed systems, and applied-AI roles &mdash; internship and full-time.</p>
         </div>
         <div class="contact-panel">
-          <div class="contact-grid" data-contact-channels></div>
-          <div class="social-row" data-social-links></div>
+          <div class="contact-grid">
+            <a class="contact-item" href="mailto:venkatasivasaikrishnaprasad.yedupati@sjsu.edu">
+              <svg class="icon"><use href="#i-mail" /></svg>
+              <span class="contact-copy"><small>Email</small><strong>venkatasivasaikrishnaprasad.yedupati@sjsu.edu</strong></span>
+            </a>
+            <a class="contact-item" href="tel:+14082103261">
+              <svg class="icon"><use href="#i-phone" /></svg>
+              <span class="contact-copy"><small>Phone</small><strong>+1 (408) 210-3261</strong></span>
+            </a>
+            <div class="contact-item">
+              <svg class="icon"><use href="#i-location" /></svg>
+              <span class="contact-copy"><small>Location</small><strong>San Jose, CA, USA</strong></span>
+            </div>
+          </div>
+          <div class="social-row">
+            <a class="btn btn-ghost btn-compact" href="https://www.linkedin.com/in/venkatayedupati/" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-linkedin" /></svg><span>LinkedIn</span></a>
+            <a class="btn btn-ghost btn-compact" href="https://github.com/venkatayedupati" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github" /></svg><span>GitHub</span></a>
+            <a class="btn btn-ghost btn-compact" href="https://leetcode.com/u/Venkatasai0234/" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-code" /></svg><span>LeetCode</span></a>
+          </div>
         </div>
       </div>
       <div class="shell footer-bottom">
-        <p class="small" data-copyright></p>
+        <p class="small">&copy; <span data-year>2026</span> Venkata Siva Sai Krishna Prasad Yedupati</p>
+        <p class="small">Built with plain HTML, CSS, and a little JavaScript.</p>
       </div>
     </footer>
 
-    <noscript>
-      <p class="noscript">Enable JavaScript to load this portfolio.</p>
-    </noscript>
-    <script src="script.js?v=robust-ui"></script>
+    <script src="script.js?v=2" defer></script>
   </body>
 </html>
