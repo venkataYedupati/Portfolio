@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 630px; }
+      body {
+        display: flex;
+        flex-direction: column;
+        padding: 80px 90px 70px;
+        font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #f5f5f7;
+        background:
+          radial-gradient(900px 500px at 88% -8%, rgba(191, 90, 242, 0.26), transparent 60%),
+          radial-gradient(1000px 620px at 8% 108%, rgba(41, 151, 255, 0.28), transparent 60%),
+          #000000;
+      }
+      .eyebrow {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #2997ff;
+        margin-bottom: 26px;
+      }
+      h1 {
+        font-size: 74px;
+        line-height: 1.08;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      h1 .accent {
+        background: linear-gradient(135deg, #2997ff, #bf5af2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      p.sub {
+        margin-top: 30px;
+        font-size: 27px;
+        line-height: 1.45;
+        color: #a1a1a6;
+        max-width: 960px;
+      }
+      .foot {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 24px;
+        color: #86868b;
+      }
+      .dot { width: 6px; height: 6px; border-radius: 50%; background: #48484a; }
+      .name { color: #f5f5f7; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <div class="eyebrow">Software Engineer</div>
+    <h1>Backend Systems.<br /><span class="accent">Distributed Reliability.</span><br />Applied AI.</h1>
+    <p class="sub">Go &middot; C &middot; CUDA &middot; Python &middot; TypeScript &nbsp;&mdash;&nbsp; APIs, distributed systems, and cloud-backed AI pipelines.</p>
+    <div class="foot">
+      <span class="name">Venkata Yedupati</span>
+      <span class="dot"></span>
+      <span>venkatayedupati.vercel.app</span>
+      <span class="dot"></span>
+      <span>MS SWE @ SJSU</span>
+    </div>
+  </body>
+</html>
